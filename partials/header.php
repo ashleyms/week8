@@ -16,7 +16,9 @@
     require_once("classes/DBController.php");
     $dbControl = new DBController();
     //Get Nav Items
-    $arrNavList = $dbControl->getResults("SELECT * FROM pages_table ORDER BY id ASC");
+    $arrNavList = $dbControl->getResults("SELECT * FROM `pages_table`
+    LEFT JOIN template_table ON pages_table.nTemplateID = template_table.id");
+    
  ?>
 <body>
     <!-- Open Header -->
@@ -31,7 +33,7 @@
               <!-- Loop Through Nav Items -->
               <?php foreach ($arrNavList as $navItem) { ?>
                 <li>
-                    <a href="<?=$navItem['strPageUrl']?>.php"><?=$navItem['strName']?></a>
+                    <a href="<?=$navItem['strFileLayout']?>?id=<?=$navItem['strName']?>"><?=$navItem['strName']?></a>
                 </li>
               <?php } ?>
             </ul>
