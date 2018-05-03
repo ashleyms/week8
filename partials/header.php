@@ -53,7 +53,7 @@
 
     foreach ($arrPageContent as $navItem) { ?>
     <section class="hero">
-        <h1><?=$navItem['strHeading']?></h1>
+        <h1><?=ucwords($navItem['strHeading'])?></h1>
         <img src="assets/<?=$navItem['strHeroImage']?>"/>
     </section>
     <?php } ?>
