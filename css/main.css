@@ -117,6 +117,21 @@ body, html {
   margin-top: 10px;
 }
 
+/* Media Image */
+.container .media-img,
+.media-section>p {
+  width: 70%;
+  margin: auto;
+  display: block;
+}
+
+.media-section p {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+  background:grey;
+}
+
 /* Footer */
 .main-footer{
     margin: 0;
