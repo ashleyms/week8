@@ -41,11 +41,11 @@
           <section class="row">
 
           <!-- Loop Through Nav Items -->
-          <?php print_r($arrMediaContent); foreach ($arrPageContent as $home) { ?>
+          <?php foreach ($arrPageContent as $home) { ?>
             <div class="col-sm-12 col-md-6">
               <h3><?=$home['strSubHeading']?></h3>
               <p><?=$home['strText']?></p>
-              <a class="btn btn-primary">Build A box</a>
+              <a class="btn btn-primary"><?=$arrExtraContent[0]['strExtraElement']?></a>
             </div>
             <div class="col-sm-12 col-md-6">
               <img class="product-img" src="assets/<?=$home['strImage']?>" alt="products"/>
