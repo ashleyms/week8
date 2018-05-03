@@ -4,7 +4,7 @@ class DBController {
 	private $user = "kunika_admin";
 	private $password = "web13";
 	private $database = "kunika_evj_db";
-	private $conn;
+	protected $conn;
 
 	function __construct() {
 		$this->conn = $this->connectDB();
@@ -15,21 +15,21 @@ class DBController {
 		return $conn;
 	}
 
-	function getResults($sql) {
-		$result = mysqli_query($this->conn,$sql);
-		while($row=mysqli_fetch_assoc($result)) {
-			$resultset[] = $row;
-		}
-		if(!empty($resultset))
-			return $resultset;
-	}
+	// function getResults($sql) {
+	// 	$result = mysqli_query($this->conn,$sql);
+	// 	while($row=mysqli_fetch_assoc($result)) {
+	// 		$resultset[] = $row;
+	// 	}
+	// 	if(!empty($resultset))
+	// 		return $resultset;
+	// }
 
-	function getRecord($sql){
-			$result = mysqli_query($this->conn,$sql);
-			while($row=mysqli_fetch_assoc($result)) {
-				return $row;
-			}
-	}
+	// function getRecord($sql){
+	// 		$result = mysqli_query($this->conn,$sql);
+	// 		while($row=mysqli_fetch_assoc($result)) {
+	// 			return $row;
+	// 		}
+	// }
 
 	// function numRows($query) {
 	// 	$result  = mysqli_query($this->conn,$query);

@@ -14,11 +14,12 @@
 <!-- Open Database Connection -->
 <?php
     require_once("classes/DBController.php");
+    require_once("classes/pages.php");
     $dbControl = new DBController();
     //Get Nav Items
-    $arrNavList = $dbControl->getResults("SELECT * FROM `pages_table`
+    $pageContent = new Pages();
+    $arrNavList = $pageContent->getResults("SELECT * FROM `pages_table`
     LEFT JOIN template_table ON pages_table.nTemplateID = template_table.id");
-    
  ?>
 <body>
     <!-- Open Header -->
