@@ -39,14 +39,21 @@
 
           <!-- Build A box -->
           <section class="row">
+
+          <!-- Loop Through Nav Items -->
+          <?php print_r($arrMediaContent); foreach ($arrPageContent as $home) { ?>
             <div class="col-sm-12 col-md-6">
-                <h3>Build a Box</h3>
-                <p>*A box can be formed by minimum 3 jam bottles </p>
-                <a class="btn btn-primary">Build A box</a>
+              <h3><?=$home['strSubHeading']?></h3>
+              <p><?=$home['strText']?></p>
+              <a class="btn btn-primary">Build A box</a>
             </div>
             <div class="col-sm-12 col-md-6">
-                <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
+              <img class="product-img" src="assets/<?=$home['strImage']?>" alt="products"/>
             </div>
+          <?php
+          }
+          ?>
+
           </section>
 
           <!-- Instagram Feed ***FIND PLUGIN**** -->

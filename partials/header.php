@@ -43,17 +43,27 @@
     </header>
     <!-- Close Header -->
 
-    <!-- Open Hero -->
-    <?php 
-    $arrPageContent = $pageContent->getResults("SELECT * 
+    <?php
+    //Data from Pages Table
+    $arrPageContent = $pageContent->getResults("SELECT *
     FROM `pages_table`
-    LEFT JOIN content_table 
-    ON pages_table.id = content_table.nPageId 
+    LEFT JOIN content_table
+    ON pages_table.id = content_table.nPageId
     WHERE pages_table.strName = '" . $_GET['id']. "'");
 
+    //Data from Extra content Table
+    $arrExtraContent = $pageContent->getResults("SELECT extra_element_table.strExtraElement
+    FROM `pages_table`
+    LEFT JOIN extra_element_table
+    ON pages_table.id = extra_element_table.nPageId
+    WHERE pages_table.strName = '".$_GET['id']."'
+    ORDER BY extra_element_table.id ASC");
+
     foreach ($arrPageContent as $navItem) { ?>
+    <!-- Open Hero -->
     <section class="hero">
         <h1><?=$navItem['strHeading']?></h1>
         <img src="assets/<?=$navItem['strHeroImage']?>"/>
     </section>
+    <!-- Close Hero -->
     <?php } ?>

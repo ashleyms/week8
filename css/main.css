@@ -9,6 +9,10 @@ body, html {
     font-family: 'Roboto', sans-serif;
 }
 
+h1, h2, h3 {
+  text-transform: capitalize;
+}
+
 /* Header */
 .main-header {
     padding-top: 10px;
