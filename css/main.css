@@ -1,0 +1,132 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+.main-header {
+    padding-top: 10px;
+    top: 0;
+    width: 100vw;
+    position: fixed;
+    z-index: 9;
+    background-color: white;
+}
+
+/* Logo */
+.main-logo {
+    width: 90px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 20;
+}
+
+/* Main Nav */
+.main-nav {
+  margin-top: 85px;
+  height: 40px;
+  text-align: center;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 15px -12px rgba(0,0,0,0.52);
+  -moz-box-shadow: 0px 10px 15px -12px rgba(0,0,0,0.52);
+  box-shadow: 0px 10px 15px -12px rgba(0,0,0,0.52);
+}
+
+.main-nav ul {
+  display: inline-block;
+}
+
+.main-nav li {
+  float: left;
+  list-style-type: none;
+}
+
+.main-nav li a {
+  padding: 5px 30px;
+  text-decoration: none;
+  color: rgb(70,70,70);
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 40px;
+  transition: all 0.3s;
+}
+
+.main-nav li a:hover{
+  color: blue;
+}
+
+/* Cart Button */
+.cart{
+  position: absolute;
+  right: 10px;
+  border: 0;
+  background-color: white;
+  padding: 5px;
+  width: 80px;
+  color: rgb(70,70,70);
+}
+
+/* Hero Header */
+.hero{
+  top: 130px;
+  background-color: red;
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+.hero h1{
+  font-size: 5rem;
+  position: absolute;
+  top: 100px;
+  left: 40px;
+}
+
+.hero img{
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/* Container */
+.container{
+  margin-top: 180px;
+}
+/* Footer */
+.main-footer{
+    margin: 0;
+    padding: 20px;
+    background-color: #E5E5E5;
+    position: relative;
+}
+
+
+/* Copyright Footer */
+.sub-footer{
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+    padding: 20px;
+    position: relative;
+}
+
+.sub-footer p{
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+/* Resizing 570 */
+@media only screen and (max-width:570px) {
+
+}
