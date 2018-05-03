@@ -45,7 +45,7 @@
 
     <!-- Open Hero -->
     <?php 
-    $arrPageContent = $pageContent->getResults("SELECT content_table.strHeading, content_table.strHeroImage 
+    $arrPageContent = $pageContent->getResults("SELECT * 
     FROM `pages_table`
     LEFT JOIN content_table 
     ON pages_table.id = content_table.nPageId 
@@ -53,7 +53,7 @@
 
     foreach ($arrPageContent as $navItem) { ?>
     <section class="hero">
-        <h1><?=ucwords($navItem['strHeading'])?></h1>
+        <h1><?=$navItem['strHeading']?></h1>
         <img src="assets/<?=$navItem['strHeroImage']?>"/>
     </section>
     <?php } ?>

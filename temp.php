@@ -1,5 +1,13 @@
 <?php
     include("partials/header.php");
+    $arrMediaContent = $pageContent->getResults("SELECT extra_element_table.strExtraElement 
+    FROM `pages_table` 
+    LEFT JOIN extra_element_table 
+    ON pages_table.id = extra_element_table.nPageId 
+    WHERE pages_table.strName = '".$_GET['id']."'
+    ORDER BY extra_element_table.id ASC");
+
+    var_dump($arrMediaContent);
 ?>
         <!-- Open Container -->
         <main class="container">

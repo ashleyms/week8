@@ -83,6 +83,7 @@ body, html {
 }
 
 .hero h1{
+  text-transform: capitalize;
   font-size: 5rem;
   position: absolute;
   top: 100px;
@@ -130,6 +131,11 @@ body, html {
   padding: 10px 0;
   font-size: 18px;
   background:grey;
+  text-transform: capitalize;
+}
+
+.container section .media-section {
+  margin-bottom: 50px;
 }
 
 /* Footer */
