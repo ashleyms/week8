@@ -1,8 +1,6 @@
 <?php
-    $pageTitle = "Media";
-    $HeroTitle = "Media";
-    $HeroImg = "defaultBanner.png";
     include("partials/header.php");
+    // $arrNavList = $dbControl->getRecord("SELECT * FROM pages_table");
 ?>
         <!-- Main Section -->
         <main class="container">

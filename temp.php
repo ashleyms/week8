@@ -1,7 +1,4 @@
 <?php
-    $pageTitle = "Title From DB";
-    $HeroTitle = "Page Title";
-    $HeroImg = "defaultBanner.png";
     include("partials/header.php");
 ?>
         <!-- Open Container -->

@@ -1,7 +1,4 @@
 <?php
-    $pageTitle = "Home";
-    $HeroTitle = "TAG LINE";
-    $HeroImg = "defaultBanner.png";
     include("partials/header.php");
 ?>
         <!-- Open Container -->

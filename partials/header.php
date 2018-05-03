@@ -44,7 +44,16 @@
     <!-- Close Header -->
 
     <!-- Open Hero -->
+    <?php 
+    $arrPageContent = $pageContent->getResults("SELECT content_table.strHeading, content_table.strHeroImage 
+    FROM `pages_table`
+    LEFT JOIN content_table 
+    ON pages_table.id = content_table.nPageId 
+    WHERE pages_table.strName = '" . $_GET['id']. "'");
+
+    foreach ($arrPageContent as $navItem) { ?>
     <section class="hero">
-      <h1><?=$HeroTitle?></h1>
-      <img src="assets/<?=$HeroImg?>"/>
+        <h1><?=$navItem['strHeading']?></h1>
+        <img src="assets/<?=$navItem['strHeroImage']?>"/>
     </section>
+    <?php } ?>

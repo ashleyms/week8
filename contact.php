@@ -1,7 +1,4 @@
 <?php
-    $pageTitle = "Contact";
-    $HeroTitle = "Contact Us";
-    $HeroImg = "defaultBanner.png";
     include("partials/header.php");
 ?>
         <!-- Main Section -->
