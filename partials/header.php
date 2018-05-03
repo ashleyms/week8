@@ -59,11 +59,15 @@
     WHERE pages_table.strName = '".$_GET['id']."'
     ORDER BY extra_element_table.id ASC");
 
-    foreach ($arrPageContent as $navItem) { ?>
+    foreach ($arrPageContent as $navItem) { 
+    if ($_GET['id'] === 'Contact') { ?>
     <!-- Open Hero -->
+    <section class="hero contact-hero">
+    <?php } else { ?>
     <section class="hero">
+    <?php } ?>
         <h1><?=$navItem['strHeading']?></h1>
-        <img src="assets/<?=$navItem['strHeroImage']?>"/>
+        <img src="assets/<?=$navItem['strHeroImage']?>" alt="hero Image"/>
     </section>
     <!-- Close Hero -->
     <?php } ?>
