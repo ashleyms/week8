@@ -1,7 +1,7 @@
 <?php
     include("partials/header.php");
 ?>
-        <!-- Media Main Section -->
+        <!-- Shop Main Section -->
         <main class="container">
             <!-- Media Gallery -->
             <section class="row">

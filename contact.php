@@ -1,9 +1,13 @@
 <?php
     include("partials/header.php");
+    
 ?>
-        <!-- Main Section -->
+        <!-- Contact Main Section -->
         <main class="container">
+            <!-- Contact Form -->
+            
             <form method='POST' action='#' name="sentMessage" id="contactForm" class="contact-form">
+                <p><?=$arrPageContent[0]['strText'];?></p>
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
                         <div class="form-group">
@@ -26,5 +30,5 @@
             </form>
         </main>
     <?php
-
+// <!-- Footer -->
 include("partials/footer.php"); ?>
