@@ -1,42 +1,44 @@
 <?php
     include("partials/header.php");
-    $arrMediaContent = $pageContent->getResults("SELECT extra_element_table.strExtraElement 
-    FROM `pages_table` 
-    LEFT JOIN extra_element_table 
-    ON pages_table.id = extra_element_table.nPageId 
-    WHERE pages_table.strName = '".$_GET['id']."'
-    ORDER BY extra_element_table.id ASC");
-
-    var_dump($arrMediaContent);
 ?>
         <!-- Open Container -->
         <main class="container">
           <!-- Row 1 -->
+          <?php foreach ($arrPageContent as $temp) { ?>
           <section class="row">
             <div class="col-sm-12 col-md-6">
-                <h3>Heading 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
-                <a class="btn btn-primary">Button</a>
+                <h3><?=$temp['strSubHeading']?></h3>
+                <p><?=$temp['strText']?></p>
+                <?php if($_GET['id'] === "About") { ?>
+                <a class="btn btn-primary"><?=$arrExtraContent[0]['strExtraElement']?></a>
+                <?php
+                }
+                ?>
             </div>
             <div class="col-sm-12 col-md-6">
-                <img class="product-img" src="assets/defaultImg.png" alt="products"/>
+                <img class="product-img" src="assets/<?=$temp['strImage']?>" alt="products"/>
             </div>
           </section>
+          <?php
+          }
+          ?>
 
           <!-- Row 2 -->
+          <?php if($_GET['id'] != "About") {
+            foreach ($arrExtraContent as $temp) {
+            $data = explode("|", $temp['strExtraElement']); ?>
           <section class="row">
             <div class="col-sm-12 col-md-6">
-                <img class="product-img" src="assets/defaultImg.png" alt="products"/>
+                <img class="product-img" src="assets/<?=$data[1]?>" alt="products"/>
             </div>
             <div class="col-sm-12 col-md-6">
-                <h3>Heading 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
-                <a class="btn btn-primary">Button</a>
+                <h3><?=$data[0]?></h3>
+                <p><?=$data[2]?></p>
             </div>
           </section>
-
-
+          <?php
+              }
+            }
+          ?>
         </main>
-    <?php
-
-include("partials/footer.php"); ?>
+    <?php include("partials/footer.php"); ?>
