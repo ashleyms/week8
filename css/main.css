@@ -180,7 +180,12 @@ body .contact-hero {
   margin-top: 40px;
 }
 
-body #step1-icon svg:first-child,
+body #step1-icon svg:first-child {
+  border: solid 2px black;
+  border-radius: 12px;
+}
+
+body 
 #step2-icon svg:first-child,
 #step3-icon svg:first-child {
   color: white;

@@ -16,7 +16,7 @@
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
                                 <i class="fas fa-circle"></i>
-                                <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i>
+                                <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
                                 <i class="fas fa-circle"></i>
-                                <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i>
+                                <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
                                 <i class="fas fa-circle"></i>
-                                <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i>
+                                <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
                     </div>
@@ -54,9 +54,9 @@
                     <h3>1. <?=$shop['strSubHeading']?></h3>
                     <p><?=$shop['strText']?></p>
                     <label>qty</label>
-                    <input type="number" min="1" /><br>
+                    <input type="number" min="1" max="10"/><br>
                     <small>*A box can be formed by minimum 3 jam bottles </small></p>
-                    <a class="btn btn-primary" id="step1-next" href="#">next step</a>
+                    <a class="btn btn-primary" id="step1-next" href="#step1">next step</a>
                 </div>
                 <!-- Box Image -->
                 <div class="col-sm-10 col-md-6" id="step1-right">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <a class="btn" id="step2-back" href="#step1">back</a>
-                    <a class="btn btn-primary" id="step2-next" href="#">next step</a>
+                    <a class="btn btn-primary" id="step2-next" href="#step1">next step</a>
                 </div>
                 <?php } ?>
                 <!-- List of all products -->
