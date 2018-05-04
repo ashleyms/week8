@@ -124,6 +124,17 @@ h1, h2, h3, a {
   margin-top: 10px;
 }
 
+/* Temp Page Alternate Columns */
+.flip:nth-of-type(2n+1){
+  position: relative;
+  margin-bottom: 250px;
+}
+
+.flip:nth-of-type(2n+1) .flip-img{
+  right: 0;
+  position: absolute;
+}
+
 /* Media Image */
 .container .media-img,
 .media-section>p {

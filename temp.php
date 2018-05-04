@@ -27,8 +27,8 @@
           <?php if($_GET['id'] != "About") {
             foreach ($arrExtraContent as $temp) {
             $data = explode("|", $temp['strExtraElement']); ?>
-          <section class="row">
-            <div class="col-sm-12 col-md-6">
+          <section class="row flip">
+            <div class="col-sm-12 col-md-6 flip-img">
                 <img class="product-img" src="assets/<?=$data[1]?>" alt="products"/>
             </div>
             <div class="col-sm-12 col-md-6">
