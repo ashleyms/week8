@@ -64,8 +64,6 @@
     WHERE pages_table.strName = '".$_GET['id']."'
     ORDER BY extra_element_table.id ASC");
 
-
-
     foreach ($arrPageContent as $navItem) {
     if ($_GET['id'] === 'Contact') { ?>
     <!-- Open Hero -->

@@ -154,6 +154,14 @@ body .contact-hero {
   height: 100%;
 }
 
+.container .contact-form {
+  position: absolute;
+  top: 150px;
+  right: 5%;
+  margin: 0;
+  width: 35%;
+}
+
 /* Footer */
 .main-footer{
     margin: 0;
