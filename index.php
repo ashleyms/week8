@@ -41,7 +41,7 @@
 
           <!-- Instagram Feed PLUGIN -->
           <section class="row">
-            <h2 class="col-sm-12">Instagram</h2>
+            <h5 class="col-sm-12">Follow Along On Instagram</h5>
             <!-- LightWidget WIDGET -->
             <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/2acb2358567a58fb845a19380f0d2f1a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
           </section>
