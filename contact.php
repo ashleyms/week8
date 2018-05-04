@@ -11,15 +11,15 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-12">
                         <div class="form-group">
-                            <label for="name">Full Name: </label>
+                            <label for="name">full name: </label>
                             <input type="text" name="name" class="form-control" placeholder="Your Name *" id="name" required="" data-validation-required-message="Please enter your name.">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email: </label>
+                            <label for="email">email: </label>
                             <input type="email" name="email" class="form-control" placeholder="Your Email *" id="email" required="" data-validation-required-message="Please enter your email address.">
                         </div>
                         <div class="form-group">
-                            <label for="message">Message: </label>
+                            <label for="message"message: </label>
                             <textarea name="str-message" class="form-control" placeholder="Your Message *" id="message" required="" data-validation-required-message="Please enter a message." rows="4"></textarea>
                         </div>
                         <div class="form-group">

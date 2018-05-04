@@ -9,7 +9,7 @@ body, html {
     font-family: 'Roboto', sans-serif;
 }
 
-h1, h2, h3, a {
+h1, h2, h3, a, label {
   text-transform: capitalize;
 }
 
@@ -175,11 +175,40 @@ body .contact-hero {
 
 .step-div {
   padding-bottom: 50px;
+  width: 70px;
+  padding-right: 25px;
+  margin-top: 40px;
 }
 
-.step-div::before {
-  content: "";
-  border: solid 1px black;
+body #step1-icon svg:first-child,
+#step2-icon svg:first-child,
+#step3-icon svg:first-child {
+  color: white;
+  border: solid 2px black;
+  border-radius: 12px;
+}
+
+#step1-icon,
+#step2-icon,
+#step3-icon {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+}
+
+body #step1-icon div:nth-child(2),
+#step2-icon div:nth-child(2) {
+  height: 160px;
+  width: 2px;
+  background: black;
+  position: absolute;
+  top: 60px;
+  right: 47%;
+}
+
+#step1-left,
+#step1-right {
+  display: block;
 }
 
 #step2-left,
@@ -187,14 +216,6 @@ body .contact-hero {
 #step3-left,
 #step3-right {
   display: none;
-}
-
-body .step-div .step-icon {
-  width: 25%;
-}
-
-.step-div p {
-
 }
 
 .shop-product {
