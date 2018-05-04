@@ -4,11 +4,27 @@
 ?>
         <!-- Shop Main Section -->
         <main class="container">
-            <!-- Step 1 : Build A box -->
+            <!-- Side Navbar for steps -->
             <section class="row" id="step1">
-                <!-- Loop Through Nav Items -->
+                <article class="col-sm-2 col-md-2">
+                    <div class="step-div">
+                        <img src="assets/defaultProduct.jpg" alt="step 1" class="step-icon">
+                        <p>step 1</p>
+                    </div>
+                    <div class="step-div">
+                        <img src="assets/defaultProduct.jpg" alt="step 2" class="step-icon">
+                        <p>step 2</p>
+                    </div>
+                    <div class="step-div">
+                        <img src="assets/defaultProduct.jpg" alt="step 3" class="step-icon">
+                        <p>step 3</p>
+                    </div>
+                </article>
+                
+                <!-- Step 1 : Build A box -->
+                <!-- Step details and choose qty option -->
                 <?php foreach ($arrPageContent as $shop) { ?>
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-10 col-md-4" id="step1-left">
                     <h3>1. <?=$shop['strSubHeading']?></h3>
                     <p><?=$shop['strText']?></p>
                     <label>Qty</label>
@@ -16,16 +32,15 @@
                     <small>*A box can be formed by minimum 3 jam bottles </small></p>
                     <a class="btn btn-primary" href="#step2">next step</a>
                 </div>
-                <div class="col-sm-12 col-md-6">
+                <!-- Box Image -->
+                <div class="col-sm-10 col-md-6" id="step1-right">
                     <img class="product-img" src="assets/<?=$shop['strImage']?>" alt="products"/>
                 </div>
                 <?php } ?>
-            </section>
-            
+
             <!-- Step 2 : Choose your flavours -->
-            <section class="row" id="step2">
                 <?php foreach ($arrPageContent as $shop) { ?>
-                <div class="col-sm-12 col-md-6 steps">
+                <div class="col-sm-12 col-md-6 steps"  id="step2-left">
                     <h3>2. Choose your flavours</h3>
                     <p>choose 3 flavours of your choice<br>
                     <small>*A box can be formed by minimum 3 jam bottles </small></p>
@@ -54,7 +69,7 @@
                     <a class="btn btn-primary" href="#step3">next step</a>
                 </div>
                 <?php } ?>
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6"  id="step2-right">
                     <article class="row">
                         <!-- Loop Through All Products -->
                         <?php foreach ($arrAllProduct as $product) { ?>
@@ -71,19 +86,17 @@
                         ?>
                     </article>
                 </div>
-            </section>
 
             <!-- Step 3 : Confirm your box -->
-            <section class="row" id="step3">
                 <?php foreach ($arrPageContent as $shop) { ?>
-                <div class="col-sm-12 col-md-6 steps">
+                <div class="col-sm-12 col-md-6 steps" id="step3-left">
                     <h3>3. Confirm your box</h3>
                     <p>Subtotal: $99</p>
                     <a class="btn" href="#step1">back</a>
                     <a class="btn btn-primary" href="#step3">Checkout</a>
                 </div>
                 <?php } ?>
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6" id="step3-right">
                     <article class="row">
                         <!-- Loop Through All Products -->
                         <div class="order-box">
@@ -106,7 +119,6 @@
                         </div>
                     </article>
                 </div>
-            </section>
         </main>
     <?php
 // <!-- Footer -->

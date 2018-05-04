@@ -173,6 +173,30 @@ body .contact-hero {
   width: 35%;
 }
 
+.step-div {
+  padding-bottom: 50px;
+}
+
+.step-div::before {
+  content: "";
+  border: solid 1px black;
+}
+
+#step2-left,
+#step2-right,
+#step3-left,
+#step3-right {
+  display: none;
+}
+
+body .step-div .step-icon {
+  width: 25%;
+}
+
+.step-div p {
+
+}
+
 .shop-product {
   margin: 10px 0;
 }
