@@ -1,40 +1,23 @@
 <?php
     include("partials/header.php");
+    $arrFeaturedProduct = $productList->getFeaturedProducts();
 ?>
         <!-- Open Container -->
         <main class="container">
           <!-- Featured Products -->
           <section class="row">
+            <?php foreach ($arrFeaturedProduct as $product) { ?>
             <div class="col-sm-12 col-md-4 product">
-                <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-                <h3>Product 12</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                <img class="product-img" src="assets/<?=$product['strProductImg']?>" alt="products"/>
+                <h3><?=$product['strProductName']?></h3>
+                <p><?=$product['strProductDescription']?></p>
                 <label>Qty</label>
-                <select>
-                  <option>1</option>
-                </select>
+                <input type="number" min="1" max="<?=$product['nProductQty']?>"/>
                 <button class="btn btn-primary add" type="button" data-toggle="modal" data-target="#ID">Add to Box</button>
             </div>
-            <div class="col-sm-12 col-md-4 product">
-                <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-                <h3>Product 13</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                <label>Qty</label>
-                <select>
-                  <option>1</option>
-                </select>
-                <button class="btn btn-primary add" type="button" data-toggle="modal" data-target="#ID">Add to Box</button>
-            </div>
-            <div class="col-sm-12 col-md-4 product">
-                <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-                <h3>Product 14</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                <label>Qty</label>
-                <select>
-                  <option>1</option>
-                </select>
-                <button class="btn btn-primary add" type="button" data-toggle="modal" data-target="#ID">Add to Box</button>
-            </div>
+            <?php
+            }
+            ?>
           </section>
 
           <!-- Build A box -->
