@@ -18,6 +18,20 @@ class CMS extends DBController {
 		}
 	}
 
+	function getResults($sql) {
+		$result = mysqli_query($this->conn,$sql);
+		while($row=mysqli_fetch_assoc($result)) {
+			$resultset[] = $row;
+		}
+		if(!empty($resultset))
+			return $resultset;
+	}
+
+	function delete($table, $id){
+			$sql = "DELETE FROM $table WHERE id= $id";
+			$result = mysqli_query($this->conn,$sql);
+			return $result;
+	}
 
 
 }

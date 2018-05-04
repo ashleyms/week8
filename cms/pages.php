@@ -1,46 +1,44 @@
 <?php
-    include("../functions/myfunctions.php");
     include("partials/session-start.php");
     include("partials/cmsheader.php");
-    $arrProd = getResults("SELECT * FROM `products`");
+    require_once("../classes/DBController.php");
+    require_once("../classes/cms.php");
+    $CMSControl = new CMS();
+    $arrPages = $CMSControl->getResults("SELECT * FROM `pages_table`");
 ?>
 <!-- Open Container -->
 <main class="container-fluid">
-    <!-- Heading -->
-	<h1 class="cms-head">Products</h1>
+  <!-- Heading -->
+	<h1 class="cms-head">Pages</h1>
     <!-- Info Para -->
-    <p class="descipt">List of products on your site. Here you can add, edit and delete products by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
+    <p class="descipt">List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
         <!-- Add Product -->
-        <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalnewtest"><i class="fa fa-plus fa-lg"></i>  New Product</button>
+        <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalnewpage"><i class="fa fa-plus fa-lg"></i>  New Page</button>
     </p>
 
     <!-- Open Table -->
     <table class="pages gallery-table">
         <!-- Headings -->
         <tr>
-            <th>Name</th><th>Image</th><th>Description</th><th>Star Rating</th>
+            <th>Name</th><th>URL</th>
         </tr>
         <!-- Loop through Products -->
-        <?php if($arrProd){
-            foreach ($arrProd as $prod){?>
+        <?php if($arrPages){
+            foreach ($arrPages as $page){?>
         <tr>
             <!-- Display Name -->
-            <td class="textRow"><?=$prod["strName"]?></td>
-            <!-- Display Image -->
-            <td class=" table-img"><img src="../assets/<?=$prod["strImage"]?>"/></td>
-            <!-- Display Description -->
-            <td class="textRow"><?=$prod["strDesc"]?></td>
-            <!-- Display Star Rating -->
-            <td class="textRow"><?=$prod["nRating"]?></td>
+            <td class="textRow"><?=$page["strName"]?></td>
+            <!-- Display URL -->
+            <td class="textRow"><?=$page["strPageUrl"]?></td>
             <!-- Edit Button -->
             <td>
-                <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$prod['id']?>">
+                <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$page['id']?>">
                     <i class=" fa fa-pencil-square-o fa-lg"></i>
                 </button>
             </td>
             <!-- Delete Button -->
             <td>
-                <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$prod["id"]?>">
+                <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$page["id"]?>">
                      <i class=" fa fa-trash fa-lg size"></i>
                 </button>
             </td>
@@ -55,8 +53,8 @@
     <!-- ************ MODAL WINDOWS ************ -->
 
     <!-- Modal Delete -->
-    <?php foreach ($arrProd as $prod) {?>
-    <div class="modal fade" id="modaldelete<?=$prod['id']?>" tabindex="-1" role="dialog"
+    <?php foreach ($arrPages as $page) {?>
+    <div class="modal fade" id="modaldelete<?=$page['id']?>" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,13 +70,18 @@
                 <!-- Modal Body -->
                 <div class="modal-body">
                     <p>
-                        Are you sure you want to delete "<?=$prod['strName']?>"?
+                        Are you sure you want to delete "<?=$page['strName']?>"?
                     </p>
-                    <a href='../actions/delete_record.php?id=<?=$prod['id']?>&page=product'>
-                        <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#modaldelete">
-                            Delete
-                        </button>
-                    </a>
+                    <!-- Open Form -->
+                    <form action="actions/delete.php?pg=pages" method="POST" enctype="multipart/form-data">
+                          <!-- id -->
+                          <input type="hidden" class="form-control" name="nID" value="<?=$page["id"]?>"/>
+                          <!-- table -->
+                          <input type="hidden" class="form-control" name="strTable" value="pages_table"/>
+                          <!-- submit -->
+                          <input type="submit" class="btn btn-danger" value="Delete">
+                    </form>
+                    <!-- Close Form -->
                 </div>
             </div>
         </div>
