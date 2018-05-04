@@ -16,5 +16,6 @@ class Pages extends DBController {
 				return $row;
 			}
 	}
+
 }
 ?>
