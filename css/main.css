@@ -173,6 +173,61 @@ body .contact-hero {
   width: 35%;
 }
 
+.shop-product {
+  margin: 10px 0;
+}
+
+.steps {
+  margin-top: 55px;
+}
+
+.order-box, 
+.cart-box {
+  width: 380px;
+  height: 320px;
+  border: solid 1px black;
+}
+
+.cart-box {
+  margin: 60px 0;
+}
+
+body .cart-product {
+  width: 100%;
+}
+
+body .box-img {
+  width: 30%;
+  margin: auto;
+  display: block;
+  margin-top: -50px;
+  margin-bottom: 30px;
+  border: solid 10px white
+}
+
+.product-placeholder {
+  position: relative;
+}
+
+.product-placeholder {
+  background-color: darkgray;
+  width: 23%;
+  display: inline-block;
+  margin: 18px;
+  height: 10%;
+}
+
+.product-placeholder p{
+  margin: 0;
+}
+
+.product-placeholder svg{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 5;
+}
+
 /* Footer */
 .main-footer{
     margin: 0;

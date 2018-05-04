@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title><?=$pageTitle?> | VANARTS STUDENT MOCK PROJECT SITE</title>
+    <title>EAST VAN JAM | VANARTS STUDENT MOCK PROJECT SITE</title>
     <meta name="description" content="This is a student exercise website for the Vancouver Institute of Media Arts (www.vanarts.com)." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" type="text/css" href="css/normalize.css" />
