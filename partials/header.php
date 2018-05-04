@@ -15,9 +15,11 @@
 <?php
     require_once("classes/DBController.php");
     require_once("classes/pages.php");
+    require_once("classes/product.php");
     $dbControl = new DBController();
     //Get Nav Items
     $pageContent = new Pages();
+    $productList = new Product();
     $arrNavList = $pageContent->getResults("SELECT * FROM `pages_table`
     LEFT JOIN template_table ON pages_table.nTemplateID = template_table.id");
  ?>
