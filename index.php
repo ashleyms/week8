@@ -39,21 +39,11 @@
 
           </section>
 
-          <!-- Instagram Feed ***FIND PLUGIN**** -->
+          <!-- Instagram Feed PLUGIN -->
           <section class="row">
             <h2 class="col-sm-12">Instagram</h2>
-            <div class="col-sm-12 col-md-3">
-              <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-            </div>
-            <div class="col-sm-12 col-md-3">
-              <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-            </div>
-            <div class="col-sm-12 col-md-3">
-              <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-            </div>
-            <div class="col-sm-12 col-md-3">
-              <img class="product-img" src="assets/defaultProduct.png" alt="products"/>
-            </div>
+            <!-- LightWidget WIDGET -->
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/2acb2358567a58fb845a19380f0d2f1a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
           </section>
 
         </main>
