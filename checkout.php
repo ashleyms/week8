@@ -51,10 +51,6 @@
                                 <form method='POST' action='#'>
                                     <div class="col-sm-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="name-card">name on card: </label>
-                                            <input type="text" name="name" class="form-control" id="name-card" required="" data-validation-required-message="Please enter your name.">
-                                        </div>
-                                        <div class="form-group">
                                             <label for="card-number">card number: </label>
                                             <input type="text" name="email" class="form-control" id="card-number" required="" data-validation-required-message="Please enter your email address.">
                                         </div>
