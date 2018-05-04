@@ -25,7 +25,7 @@
     <!-- Open Header -->
     <header class="main-header">
         <!-- Logo -->
-        <a href="index.php"><img class="main-logo" src="assets/logo.jpg" alt="east van jam logo"/></a>
+        <a href="index.php?id=Home"><img class="main-logo" src="assets/logo.jpg" alt="east van jam logo"/></a>
         <!-- Cart -->
         <button class="cart" type="button" data-toggle="modal" data-target="MODAL-ID"><i class="fas fa-shopping-cart"></i> Cart</button>
         <!-- Open Main Nav -->
@@ -44,6 +44,11 @@
     <!-- Close Header -->
 
     <?php
+    //If id is empty - set to Home
+    if(!isset($_GET['id'])){
+      $_GET['id'] = "Home";
+    }
+
     //Data from Pages Table
     $arrPageContent = $pageContent->getResults("SELECT *
     FROM `pages_table`
@@ -59,7 +64,9 @@
     WHERE pages_table.strName = '".$_GET['id']."'
     ORDER BY extra_element_table.id ASC");
 
-    foreach ($arrPageContent as $navItem) { 
+
+
+    foreach ($arrPageContent as $navItem) {
     if ($_GET['id'] === 'Contact') { ?>
     <!-- Open Hero -->
     <section class="hero contact-hero">
