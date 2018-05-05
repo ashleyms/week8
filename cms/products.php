@@ -4,7 +4,7 @@
     require_once("../classes/DBController.php");
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
-    $arrProd = $CMSControl->getResults("SELECT *, if(bFeatured = 0,'Yes', 'No') as strRecommend FROM `product_table`");
+    $arrProd = $CMSControl->getResults("SELECT *, if(bFeatured = 0,'Yes', 'No') as strFeatured FROM `product_table`");
 ?>
 <!-- Open Container -->
 <main class="container-fluid">
@@ -36,8 +36,8 @@
             <td class="textRow"><?=$prod["nProductQty"]?></td>
             <!-- Display Description -->
             <td class="textRow"><?=$prod["strProductDescription"]?></td>
-            <!-- Display Star Rating -->
-            <td class="textRow"><?=$prod["strRecommend"]?></td>
+            <!-- Display Featured -->
+            <td class="textRow"><?=$prod["strFeatured"]?></td>
             <!-- Edit Button -->
             <td>
                 <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$prod['id']?>">
@@ -107,7 +107,7 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">
-                            Edit: <?=$prod["strName"]?>
+                            Edit: <?=$prod["strProductName"]?>
                         </h4>
                         <button type="button" class="close" data-dismiss="modal">
                                <span aria-hidden="true">&times;</span>
@@ -118,46 +118,69 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <!-- Open Form -->
-                        <form action="../actions/save_record.php?id=<?=$prod["id"]?>&page=product" method="POST" enctype="multipart/form-data">
-                              <!-- Name -->
-                              <div class="form-group">
-                                  <label>Name</label>
-                                  <input type="text" class="form-control" name="strName" value="<?=$prod["strName"]?>"/>
-                              </div>
-                              <!--Description -->
-                              <div class="form-group">
-                                  <label>Description</label>
-                                  <textarea type="text" class="form-control" name="strDesc"><?=$prod["strDesc"]?></textarea>
-                              </div>
-                              <!-- Rating -->
-                              <div class="form-group">
-                                  <label>Rating (1-5)</label>
-                                   <input type="number" class="form-control" name="nRating" value="<?=$prod["nRating"]?>"/>
-                              </div>
+                        <form action="actions/edit.php?id=<?=$prod["id"]?>&page=product" method="POST" enctype="multipart/form-data">
+                                  <!-- Name -->
+                                  <div class="form-group">
+                                      <label>Product Name</label>
+                                      <input type="text" class="form-control" name="strProductName" value="<?=$prod["strProductName"]?>"/>
+                                  </div>
+                                  <!-- Number Row -->
+                                  <div class="row">
+                                    <!-- Code -->
+                                    <div class="form-group col-md-6">
+                                        <label>Product Code</label>
+                                        <input type="text" class="form-control" name="strCode" value="<?=$prod["strCode"]?>"/>
+                                    </div>
+                                    <!-- Price -->
+                                    <div class="form-group col-md-3">
+                                        <label>Price</label>
+                                        <input type="number" class="form-control" name="nProductPrice" value="<?=$prod["nProductPrice"]?>"/>
+                                    </div>
+                                    <!-- Qty -->
+                                    <div class="form-group col-md-3">
+                                        <label>Quanity</label>
+                                        <input type="number" class="form-control" name="nProductQty" value="<?=$prod["nProductQty"]?>"/>
+                                    </div>
+                                  </div>
+                                  <!--Description -->
+                                  <div class="form-group">
+                                      <label>Product Description</label>
+                                      <textarea type="text" class="form-control" name="strProductDescription"><?=$prod["strProductDescription"]?></textarea>
+                                  </div>
+                                  <!-- Featured -->
+                                  <div class="form-group">
+                                      <label>Feature Product On Home Page?</label><br/>
+                                       <select name="bFeatured">
+                                         <option value="<?=$prod["bFeatured"]?>"><?=$prod["strFeatured"]?></option>
+                                         <option value="
+                                         <?php
+                                           if($prod["strFeatured"] === Yes){
+                                             echo 1;
+                                           }
+                                           else{
+                                             echo 0;
+                                           } ?> ">
 
-                              <!-- Upload Image -->
-                              <div class="form-group">
-                                  <label>Select Image</label><br />
-                                  <img class="thumb-prod" src="../assets/<?=$prod["strImage"]?>"/>
-                                  <input type="file"  name="strImage"/>
-                              </div>
-
-                              <!--About -->
-                              <div class="form-group">
-                                  <label>About</label>
-                                  <textarea type="text" class="form-control txtarea" name="strAbout"><?=$prod["strAbout"]?></textarea>
-                              </div>
-
-                              <!--Directions -->
-                              <div class="form-group">
-                                  <label>Directions</label>
-                                  <textarea type="text" class="form-control txtarea" name="strDirections"><?=$prod["strDirections"]?></textarea>
-                              </div>
-
-                              <!-- Submit -->
-                              <input type="submit" class="btn btn-primary" value="Save">
-                        </form>
-                        <!-- Close Form -->
+                                           <?php
+                                           if($prod["strFeatured"] === "Yes"){
+                                             echo "No";
+                                           }
+                                           else{
+                                             echo "Yes";
+                                           } ?>
+                                         </option>
+                                     </select>
+                                  </div>
+                                  <!-- Upload Image -->
+                                  <div class="form-group">
+                                      <label>Change Product Image</label><br />
+                                      <img class="thumb-prod" src="../assets/<?=$prod["strProductImg"]?>"/>
+                                      <input type="file" name="strProductImg"/>
+                                  </div>
+                                <!-- Submit -->
+                                <input type="submit" class="btn btn-primary" value="Add">
+                            </form>
+                            <!-- Close Form -->
                     </div>
                 </div>
             </div>
@@ -192,7 +215,7 @@
                                     <label>Product Name</label>
                                     <input type="text" class="form-control" name="strProductName"/>
                                 </div>
-
+                                <!-- Number Row -->
                                 <div class="row">
                                   <!-- Code -->
                                   <div class="form-group col-md-6">
@@ -210,7 +233,6 @@
                                       <input type="number" class="form-control" name="nProductQty"/>
                                   </div>
                                 </div>
-
                                 <!--Description -->
                                 <div class="form-group">
                                     <label>Product Description</label>
@@ -224,11 +246,10 @@
                                        <option value="0">Yes</option>
                                    </select>
                                 </div>
-
                                 <!-- Upload Image -->
                                 <div class="form-group">
                                     <label>Upload Product Image</label><br />
-                                    <input type="file"  name="strProductImg"/>
+                                    <input type="file" name="strProductImg"/>
                                 </div>
                               <!-- Submit -->
                               <input type="submit" class="btn btn-primary" value="Add">
@@ -239,7 +260,6 @@
                 </div>
             </div>
             <!-- Close Modal New Product -->
-
 </main>
 <!-- Close Container -->
 <?php include("partials/cmsfooter.php"); ?>

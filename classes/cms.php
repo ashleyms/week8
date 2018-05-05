@@ -33,14 +33,7 @@ class CMS extends DBController {
 			return $result;
 	}
 
-	function add($table, $columns, $values){
-			$sql = "INSERT INTO $table($columns) VALUES ('" . $values . "')";
-			$result = mysqli_query($this->conn,$sql);
-			return $result;
-	}
-
-	function edit($table, $values, $id){
-			$sql = "UPDATE $table SET $values WHERE  id= $id";
+	function add($sql){
 			$result = mysqli_query($this->conn,$sql);
 			return $result;
 	}
@@ -49,6 +42,14 @@ class CMS extends DBController {
 		$sql = "UPDATE order_table SET bOrderStatus = $value WHERE  id= $id";
 		$result = mysqli_query($this->conn,$sql);
 		return $result;
+	}
+
+	function uploadFile($whichFile){
+		$name = $_FILES[$whichFile]["name"];
+		$tempFile = $_FILES[$whichFile]["tmp_name"];
+		move_uploaded_file($tempFile,"../../assets/".$name);
+		return $name;
+
 	}
 
 
