@@ -5,9 +5,11 @@
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
     $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id ORDER BY order_table.dOrderDate DESC");
+
     if($_GET["find"]){
       $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id WHERE order_table.id = ".$_GET['find']." ");
     }
+
 
 ?>
 <!-- Open Container -->
@@ -22,14 +24,20 @@
       <!-- See All Orders -->
       <a class="btn add-gal" href="orders.php" >  View All Orders</a>
     </p>
-
+      <?php
+      //If no record found
+       if(isset($_GET["error"])){
+         echo "<h5 class='error'>Error: No Order Found</h5>";
+       }
+       ?>
     <!-- Open Table -->
     <table class="pages gallery-table">
         <!-- Headings -->
         <tr>
             <th>Order #</th><th>Name</th><th>Email</th><th>Date Placed</th><th>Total Price</th><th>Status</th>
         </tr>
-        <!-- Loop through Products -->
+
+        <!-- Loop through orders -->
         <?php if($arrOrders){
             foreach ($arrOrders as $orders){?>
         <tr>
