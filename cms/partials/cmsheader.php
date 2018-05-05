@@ -16,16 +16,15 @@
 <body>
     <!-- Open Header -->
     <header>
-        <a href="../index.php"><img class="sub-logo" src="img/logo.jpg" alt="logo"/></a>
+        <a href="../index.php"><img class="sub-logo" src="img/logo.png" alt="logo"/></a>
         <!-- Open Main Nav -->
         <nav>
             <ul class="nav">
                 <li class="out"><a href="actions/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                 <li><a href="dashboard.php"><i class="fa fa-tachometer icon"></i> Dashboard</a></li>
-                <li><a href="pages.php"><i class="fa fa-shopping-cart icon"></i> Pages</a></li>
-                <li><a href="products.php"><i class="fa fa-quote-left icon"></i> Products</a></li>
-                <li><a href="orders.php"><i class="fa fa-quote-left icon"></i> Orders</a></li>
-                <li><a href="users.php"><i class="fa fa-user icon"></i> Users</a></li>
+                <li><a href="pages.php"><i class="fa fa-file-o icon"></i> Pages</a></li>
+                <li><a href="products.php"><i class="fa fa-list-ul icon"></i> Products</a></li>
+                <li><a href="orders.php"><i class="fa fa-shopping-cart icon"></i> Orders</a></li>
             </ul>
         </nav>
         <!-- Close Main Nav -->

@@ -52,7 +52,7 @@ body, html {
 }
 
 .sub-logo{
-    width: 100px;
+    width: 70px;
     position: fixed;
     right: 20px;
     top: 20px;
@@ -97,7 +97,8 @@ body, html {
 
 /* TABLE IMAGE */
 .table-img img{
-    height: 140px;
+    height: 100px;
+    padding: 4px;
     padding-right: 50px;
 }
 

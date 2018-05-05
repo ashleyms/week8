@@ -33,6 +33,24 @@ class CMS extends DBController {
 			return $result;
 	}
 
+	function add($table, $columns, $values){
+			$sql = "INSERT INTO $table($columns) VALUES ('" . $values . "')";
+			$result = mysqli_query($this->conn,$sql);
+			return $result;
+	}
+
+	function edit($table, $values, $id){
+			$sql = "UPDATE $table SET $values WHERE  id= $id";
+			$result = mysqli_query($this->conn,$sql);
+			return $result;
+	}
+
+	function changeStatus($value, $id){
+		$sql = "UPDATE order_table SET bOrderStatus = $value WHERE  id= $id";
+		$result = mysqli_query($this->conn,$sql);
+		return $result;
+	}
+
 
 }
 ?>
