@@ -15,7 +15,7 @@
 	<h1 class="cms-head">Pages</h1>
     <!-- Info Para -->
     <p class="descipt">List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
-        <!-- Add Product -->
+        <!-- Add Page -->
         <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalnewpage"><i class="fa fa-plus fa-lg"></i>  New Page</button>
     </p>
 
@@ -140,20 +140,8 @@
                                   <img class="thumb-banner" src="../assets/<?=$content["strHeroImage"]?>"/>
                                   <input type="file" name="strHeroImage"/>
                               </div>
-                              <!--Sub Heading -->
-                              <div class="form-group">
-                                  <label>Sub Heading</label>
-                                  <input type="text" class="form-control" name="strSubHeading" value="<?=$content["strSubHeading"]?>"/>
-                              </div>
-
                               <?php
                               }?>
-
-                              <!-- Upload Image -->
-                              <!-- <div class="form-group">
-                                  <label>Select Image</label><br />
-                                  <input type="file"  name="strImage"/>
-                              </div> -->
 
                               <!-- Submit -->
                               <input type="submit" class="btn btn-primary" value="Save">
@@ -168,15 +156,15 @@
         <!-- Close Modal Edit -->
 
 
-        <!-- Modal New Product -->
-        <div class="modal fade" id="modalnewtest" tabindex="-1" role="dialog"
+        <!-- Modal New Page -->
+        <div class="modal fade" id="modalnewpage" tabindex="-1" role="dialog"
                  aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">
-                            New Testimonial
+                            New Page
                         </h4>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
@@ -187,40 +175,33 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <!-- Open Form -->
-                        <form action="../actions/new_record.php?page=product" method="POST" enctype="multipart/form-data">
+                        <form action="actions/add.php?page=pages" method="POST" enctype="multipart/form-data">
                                 <!-- Name -->
                                 <div class="form-group">
-                                    <label>Name</label>
+                                    <label>Page Name</label>
                                     <input type="text" class="form-control" name="strName"/>
                                 </div>
-                                <!--Description -->
+                                <!--Heading -->
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea type="text" class="form-control" name="strDesc"></textarea>
+                                    <label>Page Heading</label>
+                                    <input type="text" class="form-control" name="strHeading"/>
                                 </div>
-                                <!-- Rating -->
+                                <!-- Upload Banner -->
                                 <div class="form-group">
-                                    <label>Rating (1-5)</label>
-                                     <input type="number" class="form-control" name="nRating" value="<?=$prod["nRating"]?>"/>
+                                    <label>Select Banner Image</label><br />
+                                    <input type="file" name="strHeroImage"/>
                                 </div>
-
-                                <!-- Upload Image -->
+                                <!--Template -->
                                 <div class="form-group">
-                                    <label>Select Image</label><br />
-                                    <input type="file"  name="strImage"/>
-                                </div>
-
-                                <!--About -->
-                                <div class="form-group">
-                                    <label>About</label>
-                                    <textarea type="text" class="form-control" name="strAbout"></textarea>
+                                    <label>Select Template</label>
+                                    <select name="nTemplateID">
+                                      <option value="1">2 Column Grid</option>
+                                      <option value="2">Media Template</option>
+                                      <option value="3">Contact Form</option>
+                                    </select>
                                 </div>
 
-                                <!--Directions -->
-                                <div class="form-group">
-                                    <label>Directions</label>
-                                    <textarea type="text" class="form-control" name="strDirections"></textarea>
-                                </div>
+
                               <!-- Submit -->
                               <input type="submit" class="btn btn-primary" value="Save">
                           </form>

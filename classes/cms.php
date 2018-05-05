@@ -38,6 +38,11 @@ class CMS extends DBController {
 			return $result;
 	}
 
+	function addAndReturnID($sql) {
+		$result = mysqli_query($this->conn,$sql);
+		return mysqli_insert_id($this->conn);
+	}
+
 	function changeStatus($value, $id){
 		$sql = "UPDATE order_table SET bOrderStatus = $value WHERE  id= $id";
 		$result = mysqli_query($this->conn,$sql);
