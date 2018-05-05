@@ -5,6 +5,10 @@
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
     $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id ORDER BY order_table.dOrderDate DESC");
+    if($_GET["find"]){
+      $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id WHERE order_table.id = ".$_GET['find']." ");
+    }
+
 ?>
 <!-- Open Container -->
 <main class="container-fluid">
@@ -13,6 +17,10 @@
     <!-- Info Para -->
     <p class="descipt">
       List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
+      <!-- Find Order -->
+      <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalfindorder"><i class="fa fa-search fa-lg"></i>  Find Order</button>
+      <!-- See All Orders -->
+      <a class="btn add-gal" href="orders.php" >  View All Orders</a>
     </p>
 
     <!-- Open Table -->
@@ -173,68 +181,39 @@
         <!-- Close Modal Edit -->
 
 
-        <!-- Modal New Product -->
-        <div class="modal fade" id="modalnewtest" tabindex="-1" role="dialog"
-                 aria-labelledby="myModalLabel" aria-hidden="true">
+        <!-- Modal Find Order -->
+        <div class="modal fade" id="modalfindorder" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">
-                            New Testimonial
-                        </h4>
+                        <h4 class="modal-title" id="myModalLabel">Search</h4>
                         <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Close</span>
+                               <span aria-hidden="true">&times;</span>
+                               <span class="sr-only">Close</span>
                         </button>
                     </div>
 
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <!-- Open Form -->
-                        <form action="../actions/new_record.php?page=product" method="POST" enctype="multipart/form-data">
-                                <!-- Name -->
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" name="strName"/>
-                                </div>
-                                <!--Description -->
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea type="text" class="form-control" name="strDesc"></textarea>
-                                </div>
-                                <!-- Rating -->
-                                <div class="form-group">
-                                    <label>Rating (1-5)</label>
-                                     <input type="number" class="form-control" name="nRating" value="<?=$prod["nRating"]?>"/>
-                                </div>
+                        <form action="actions/findorder.php" method="POST" enctype="multipart/form-data">
+                          <div class="form-group">
+                              <!-- Search -->
+                              <label>Enter the order number or email:</label>
+                              <input type="text" class="form-control" name="strFind"/>
+                          </div>
+                          <!-- submit -->
+                          <input type="submit" class="btn btn-success" value="Search">
 
-                                <!-- Upload Image -->
-                                <div class="form-group">
-                                    <label>Select Image</label><br />
-                                    <input type="file"  name="strImage"/>
-                                </div>
-
-                                <!--About -->
-                                <div class="form-group">
-                                    <label>About</label>
-                                    <textarea type="text" class="form-control" name="strAbout"></textarea>
-                                </div>
-
-                                <!--Directions -->
-                                <div class="form-group">
-                                    <label>Directions</label>
-                                    <textarea type="text" class="form-control" name="strDirections"></textarea>
-                                </div>
-                              <!-- Submit -->
-                              <input type="submit" class="btn btn-primary" value="Save">
-                          </form>
-                          <!-- Close Form -->
-                        </div>
+                        </form>
+                        <!-- Close Form -->
                     </div>
                 </div>
             </div>
-            <!-- Close Modal New Testimonial -->
+        </div>
+        <!-- Close Modal Find Order -->
 
 </main>
 <!-- Close Container -->
