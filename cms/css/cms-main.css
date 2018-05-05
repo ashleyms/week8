@@ -95,6 +95,11 @@ body, html {
     padding: 10px;
 }
 
+.pages .modal-textRow {
+    min-width: 105px;
+    padding: 15px;
+}
+
 /* TABLE IMAGE */
 .table-img img{
     height: 100px;
@@ -104,6 +109,11 @@ body, html {
 
 .table-pad{
     padding: 10px;
+}
+
+.total{
+  text-align: right;
+  padding: 20px;
 }
 
 /* DESCRIPTION */

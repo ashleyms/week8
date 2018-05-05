@@ -4,7 +4,7 @@
     require_once("../classes/DBController.php");
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
-    $arrProd = $CMSControl->getResults("SELECT *, if(bFeatured = 0,'Yes', 'No') as strFeatured FROM `product_table`");
+    $arrProd = $CMSControl->getResults("SELECT *, if(bFeatured = 0,'Yes', 'No') as strFeatured FROM `product_table` ORDER BY id ASC");
 ?>
 <!-- Open Container -->
 <main class="container-fluid">

@@ -12,7 +12,7 @@
 <body>
     <!-- Open Container -->
     <main class="login-container">
-        <a href="../index.php"><img class="main-logo" src="img/logo.jpg" alt="logo"/></a>
+        <a href="../index.php"><img class="main-logo" src="img/logo.png" alt="logo"/></a>
     	<div class="log">
     		<?php
     			 if(isset($_GET["error"])){
