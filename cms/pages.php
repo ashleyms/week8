@@ -4,7 +4,10 @@
     require_once("../classes/DBController.php");
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
-    $arrPages = $CMSControl->getResults("SELECT * FROM `pages_table`");
+    $arrPages = $CMSControl->getResults("SELECT *, pages_table.id as nPageID
+    FROM `pages_table`
+    LEFT JOIN template_table
+    ON pages_table.nTemplateID = template_table.id");
 ?>
 <!-- Open Container -->
 <main class="container-fluid">
@@ -32,13 +35,13 @@
             <td class="textRow"><?=$page["strPageUrl"]?></td>
             <!-- Edit Button -->
             <td>
-                <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$page['id']?>">
+                <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$page["nPageID"]?>">
                     <i class=" fa fa-pencil-square-o fa-lg"></i>
                 </button>
             </td>
             <!-- Delete Button -->
             <td>
-                <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$page["id"]?>">
+                <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$page["nPageID"]?>">
                      <i class=" fa fa-trash fa-lg size"></i>
                 </button>
             </td>
@@ -54,7 +57,7 @@
 
     <!-- Modal Delete -->
     <?php foreach ($arrPages as $page) {?>
-    <div class="modal fade" id="modaldelete<?=$page['id']?>" tabindex="-1" role="dialog"
+    <div class="modal fade" id="modaldelete<?=$page['nPageID']?>" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -75,7 +78,7 @@
                     <!-- Open Form -->
                     <form action="actions/delete.php?pg=pages" method="POST" enctype="multipart/form-data">
                           <!-- id -->
-                          <input type="hidden" class="form-control" name="nID" value="<?=$page["id"]?>"/>
+                          <input type="hidden" class="form-control" name="nID" value="<?=$page["nPageID"]?>"/>
                           <!-- table -->
                           <input type="hidden" class="form-control" name="strTable" value="pages_table"/>
                           <!-- submit -->
@@ -91,15 +94,15 @@
     <!-- Close Modal Delete -->
 
     <!-- Modal Edit -->
-    <?php foreach ($arrProd as $prod) {?>
-        <div class="modal fade" id="modaledit<?=$prod['id']?>" tabindex="-1" role="dialog"
+    <?php foreach ($arrPages as $page) {?>
+        <div class="modal fade" id="modaledit<?=$page["nPageID"]?>" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">
-                            Edit: <?=$prod["strName"]?>
+                            Edit: <?=$page["strName"]?>
                         </h4>
                         <button type="button" class="close" data-dismiss="modal">
                                <span aria-hidden="true">&times;</span>
@@ -110,41 +113,47 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <!-- Open Form -->
-                        <form action="../actions/save_record.php?id=<?=$prod["id"]?>&page=product" method="POST" enctype="multipart/form-data">
+                        <form action="../actions/edit.php?id=<?=$page["nPageID"]?>&page=product" method="POST" enctype="multipart/form-data">
                               <!-- Name -->
                               <div class="form-group">
                                   <label>Name</label>
-                                  <input type="text" class="form-control" name="strName" value="<?=$prod["strName"]?>"/>
+                                  <input type="text" class="form-control" name="strName" value="<?=$page["strName"]?>"/>
                               </div>
-                              <!--Description -->
+                              <?php
+                              $arrPageContent = $CMSControl->getResults("SELECT *
+                              FROM `pages_table`
+                              LEFT JOIN content_table
+                              ON pages_table.id = content_table.nPageId
+                              WHERE pages_table.id = '" . $page["nPageID"]. "'");
+
+                              foreach ($arrPageContent as $content) {
+
+                              ?>
+                              <!--Heading -->
                               <div class="form-group">
-                                  <label>Description</label>
-                                  <textarea type="text" class="form-control" name="strDesc"><?=$prod["strDesc"]?></textarea>
+                                  <label>Heading</label>
+                                  <input type="text" class="form-control" name="strHeading" value="<?=$content["strHeading"]?>"/>
                               </div>
-                              <!-- Rating -->
+                              <!-- Banner Image -->
                               <div class="form-group">
-                                  <label>Rating (1-5)</label>
-                                   <input type="number" class="form-control" name="nRating" value="<?=$prod["nRating"]?>"/>
+                                  <label>Change Banner</label><br />
+                                  <img class="thumb-banner" src="../assets/<?=$content["strHeroImage"]?>"/>
+                                  <input type="file" name="strHeroImage"/>
                               </div>
+                              <!--Sub Heading -->
+                              <div class="form-group">
+                                  <label>Sub Heading</label>
+                                  <input type="text" class="form-control" name="strSubHeading" value="<?=$content["strSubHeading"]?>"/>
+                              </div>
+
+                              <?php
+                              }?>
 
                               <!-- Upload Image -->
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                   <label>Select Image</label><br />
-                                  <img class="thumb-prod" src="../assets/<?=$prod["strImage"]?>"/>
                                   <input type="file"  name="strImage"/>
-                              </div>
-
-                              <!--About -->
-                              <div class="form-group">
-                                  <label>About</label>
-                                  <textarea type="text" class="form-control txtarea" name="strAbout"><?=$prod["strAbout"]?></textarea>
-                              </div>
-
-                              <!--Directions -->
-                              <div class="form-group">
-                                  <label>Directions</label>
-                                  <textarea type="text" class="form-control txtarea" name="strDirections"><?=$prod["strDirections"]?></textarea>
-                              </div>
+                              </div> -->
 
                               <!-- Submit -->
                               <input type="submit" class="btn btn-primary" value="Save">

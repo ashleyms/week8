@@ -72,6 +72,11 @@ body, html {
     height: 200px;
 }
 
+.thumb-banner{
+  width: 100%;
+  padding-bottom: 10px;
+}
+
 .form-group .txtarea{
     height: 200px;
 }
@@ -206,15 +211,15 @@ body, html {
 
 /* QUICK LINKS BACKGROUNDS */
 .back-prod{
-    background-image: url("../img/product.jpg");
+    background-image: url("../img/pages.jpg");
 }
 
 .back-test{
-    background-image: url("../img/test.jpg");
+    background-image: url("../img/product.jpg");
 }
 
 .back-user{
-    background-image: url("../img/user.jpg");
+    background-image: url("../img/order.jpg");
 }
 
 /* CMS QUICK LINKS */
