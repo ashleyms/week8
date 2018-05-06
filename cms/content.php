@@ -121,12 +121,12 @@
 
             ?>
             <!-- Add Link -->
-             <button class="btn btn-success add-link" data-toggle="modal" data-target="#modalnewcolumn"><i class="fa fa-plus fa-lg"></i>  New Column</button>
+             <button class="btn btn-success add-link" data-toggle="modal" data-target="#modalnewcolumn"><i class="fa fa-plus fa-lg"></i>  New</button>
             <!-- Open Table -->
             <table class="pages gallery-table">
                 <!-- Headings -->
                 <tr>
-                    <th>Image</th><th>Text</th>
+                    <th>Title</th><th>Text</th>
                 </tr>
                 <!-- Loop through links -->
                 <?php
@@ -134,7 +134,7 @@
                     $data = explode("|", $extra['strExtraElement']); ?>
                 <tr>
                     <!-- Display Title -->
-                    <td class="textRow"><?=$data[1]?></td>
+                    <td class="textRow"><?=$data[0]?></td>
                     <!-- Display Link -->
                     <td class="textRow"><?=$data[2]?></td>
                     <!-- Delete Button -->
@@ -240,6 +240,52 @@
                   </div>
               </div>
               <!-- Close Modal New Link -->
+
+              <!-- Modal New Column -->
+              <div class="modal fade" id="modalnewcolumn" tabindex="-1" role="dialog"
+                       aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                              <h4 class="modal-title" id="myModalLabel">
+                                  New
+                              </h4>
+                              <button type="button" class="close" data-dismiss="modal">
+                                  <span aria-hidden="true">&times;</span>
+                                  <span class="sr-only">Close</span>
+                              </button>
+                          </div>
+
+                          <!-- Modal Body -->
+                          <div class="modal-body">
+                              <!-- Open Form -->
+                              <form action="actions/add.php?page=column" method="POST" enctype="multipart/form-data">
+                                      <!-- Title -->
+                                      <div class="form-group">
+                                          <label>Title</label>
+                                          <input type="text" class="form-control" name="strTitle"/>
+                                      </div>
+                                      <!-- Text -->
+                                      <div class="form-group">
+                                          <label>Text</label>
+                                          <textarea type="text" class="form-control" name="strText"></textarea>
+                                      </div>
+                                      <!-- Image -->
+                                      <div class="form-group">
+                                          <label>Select Image</label><br />
+                                          <input type="file" name="strImage"/>
+                                      </div>
+                                      <input type="hidden" class="form-control" name="nPageId" value="<?=$_GET['page']?>"/>
+                                    <!-- Submit -->
+                                    <input type="submit" class="btn btn-primary" value="Add">
+                                </form>
+                                <!-- Close Form -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Close Modal New Column -->
 
 </main>
 <!-- Close Container -->

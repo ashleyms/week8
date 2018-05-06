@@ -5,7 +5,8 @@
         <!-- Open Container -->
         <main class="container">
           <!-- Row 1 -->
-          <?php foreach ($arrPageContent as $temp) { ?>
+          <?php foreach ($arrPageContent as $temp) {
+                if($temp['nPageId'] == 2 || $temp['nPageId'] == 3){ ?>
           <section class="row">
             <div class="col-sm-12 col-md-6">
                 <h3><?=$temp['strSubHeading']?></h3>
@@ -21,6 +22,7 @@
             </div>
           </section>
           <?php
+            }
           }
           ?>
 
