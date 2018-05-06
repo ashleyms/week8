@@ -9,14 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" type="text/css" href="../css/normalize.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <link rel="StyleSheet" type="text/css" href="css/cms-main.css" />
+    <link rel="StyleSheet" type="text/css" href="../css/cms-main.css" />
 
 </head>
 
 <body>
     <!-- Open Header -->
     <header>
-        <a href="../index.php"><img class="sub-logo" src="img/logo.png" alt="logo"/></a>
+        <a href="../index.php"><img class="sub-logo" src="../assets/logo.png" alt="logo"/></a>
         <!-- Open Main Nav -->
         <nav>
             <ul class="nav">
