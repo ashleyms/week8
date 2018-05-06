@@ -84,7 +84,7 @@
               <tr>
                   <th>Title</th><th>Link</th>
               </tr>
-              <!-- Loop through Products -->
+              <!-- Loop through links -->
               <?php
                   foreach ($arrExtraContent as $extra) {
                   $data = explode("|", $extra['strExtraElement']); ?>
@@ -107,7 +107,51 @@
           </table>
           <!-- Close Table -->
           <?php
-          }?>
+          }
+
+          //Template 1 - 2 column
+          if($_GET['temp'] == 1){
+            //Data from Extra content Table
+            $arrExtraContent = $CMSControl->getResults("SELECT extra_element_table.strExtraElement, extra_element_table.id
+            FROM `pages_table`
+            LEFT JOIN extra_element_table
+            ON pages_table.id = extra_element_table.nPageId
+            WHERE pages_table.id = '".$_GET['page']."'
+            ORDER BY extra_element_table.id ASC");
+
+            ?>
+            <!-- Add Link -->
+             <button class="btn btn-success add-link" data-toggle="modal" data-target="#modalnewcolumn"><i class="fa fa-plus fa-lg"></i>  New Column</button>
+            <!-- Open Table -->
+            <table class="pages gallery-table">
+                <!-- Headings -->
+                <tr>
+                    <th>Image</th><th>Text</th>
+                </tr>
+                <!-- Loop through links -->
+                <?php
+                    foreach ($arrExtraContent as $extra) {
+                    $data = explode("|", $extra['strExtraElement']); ?>
+                <tr>
+                    <!-- Display Title -->
+                    <td class="textRow"><?=$data[1]?></td>
+                    <!-- Display Link -->
+                    <td class="textRow"><?=$data[2]?></td>
+                    <!-- Delete Button -->
+                    <td>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$extra["id"]?>">
+                             <i class=" fa fa-trash fa-lg size"></i>
+                        </button>
+                    </td>
+                </tr>
+                <?php
+                    }
+                ?>
+                <!-- Close Loop -->
+            </table>
+            <!-- Close Table -->
+            <?php
+            }?>
 
           <!-- ************ MODAL WINDOWS ************ -->
 

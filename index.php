@@ -14,7 +14,7 @@
                 <p><?=$product['strProductDescription']?></p>
                 <label>Qty</label>
                 <input type="number" min="1" max="<?=$product['nProductQty']?>"/>
-                <button class="btn btn-primary add" type="button" data-toggle="modal" data-target="#ID">Add to Box</button>
+                <button class="btn btn-primary add add-margin" type="button" data-toggle="modal" data-target="#ID">Add to Box</button>
             </div>
             <?php
             }
@@ -29,7 +29,7 @@
             <div class="col-sm-12 col-md-6">
               <h3><?=$home['strSubHeading']?></h3>
               <p><?=$home['strText']?></p>
-              <a class="btn btn-primary" href="shop.php"><?=$arrExtraContent[0]['strExtraElement']?></a>
+              <a class="btn btn-primary add-margin" href="shop.php"><?=$arrExtraContent[0]['strExtraElement']?></a>
             </div>
             <div class="col-sm-12 col-md-6">
               <img class="product-img" src="assets/<?=$home['strImage']?>" alt="products"/>

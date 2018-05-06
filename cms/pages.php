@@ -15,7 +15,7 @@
 	<h1 class="cms-head">Pages</h1>
     <!-- Info Para -->
     <p class="descipt">List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
-      <i class=" fa fa-pencil-square-o fa-lg"></i>Quick Edit <br/>
+      <i class=" fa fa-pencil-square-o fa-lg"></i>Quick Edit - Header Section <br/>
       <i class=" fa fa-file-text fa-lg"></i> Edit All Detailed Content <br/>
        <!-- Add Page -->
         <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalnewpage"><i class="fa fa-plus fa-lg"></i>  New Page</button>

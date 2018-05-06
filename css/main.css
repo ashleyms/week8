@@ -13,8 +13,6 @@ h1, h2, h3, a, label {
   text-transform: capitalize;
 }
 
-
-
 /* Header */
 .main-header {
     padding-top: 10px;
@@ -126,6 +124,10 @@ h1, h2, h3, a, label {
   margin-top: 10px;
 }
 
+.add-margin{
+  margin-bottom: 25px;
+}
+
 /* Temp Page Alternate Columns */
 .flip:nth-of-type(2n+1){
   position: relative;
@@ -212,7 +214,7 @@ body #step1-icon div:nth-child(2),
 }
 
 body .container .show {
-  display: block;  
+  display: block;
 }
 
 body .container .hide {
@@ -265,7 +267,7 @@ body .box-img {
 
 .product-placeholder p{
   margin: 0;
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 .product-placeholder svg{
@@ -327,7 +329,10 @@ body .box-img {
     line-height: 30px;
 }
 
-/* Resizing 570 */
-@media only screen and (max-width:570px) {
-
+/* Resizing 760 */
+@media only screen and (max-width:760px) {
+  /* Position 2 Column Template Image To Static */
+  .flip:nth-of-type(2n+1) .flip-img{
+    position: static;
+  }
 }

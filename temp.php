@@ -11,7 +11,7 @@
                 <h3><?=$temp['strSubHeading']?></h3>
                 <p><?=$temp['strText']?></p>
                 <?php if($_GET['id'] === "About") { ?>
-                <a class="btn btn-primary"><?=$arrExtraContent[0]['strExtraElement']?></a>
+                <a class="btn btn-primary add-margin"><?=$arrExtraContent[0]['strExtraElement']?></a>
                 <?php
                 }
                 ?>
