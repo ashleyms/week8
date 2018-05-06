@@ -65,7 +65,7 @@
           }
         }
 
-        //Template 2
+        //Template 2 -MEDIA
         if($_GET['temp'] == 2){
           //Data from Extra content Table
           $arrExtraContent = $CMSControl->getResults("SELECT extra_element_table.strExtraElement, extra_element_table.id
@@ -77,7 +77,7 @@
 
           ?>
           <!-- Add Link -->
-           <button class="btn btn-success add-link" data-toggle="modal" data-target="#modalnewpage"><i class="fa fa-plus fa-lg"></i>  New Link</button>
+           <button class="btn btn-success add-link" data-toggle="modal" data-target="#modalnewlink"><i class="fa fa-plus fa-lg"></i>  New Link</button>
           <!-- Open Table -->
           <table class="pages gallery-table">
               <!-- Headings -->
@@ -150,6 +150,52 @@
           <?php
           }?>
           <!-- Close Modal Delete -->
+
+          <!-- Modal New Link -->
+          <div class="modal fade" id="modalnewlink" tabindex="-1" role="dialog"
+                   aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel">
+                              New Link
+                          </h4>
+                          <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">&times;</span>
+                              <span class="sr-only">Close</span>
+                          </button>
+                      </div>
+
+                      <!-- Modal Body -->
+                      <div class="modal-body">
+                          <!-- Open Form -->
+                          <form action="actions/add.php?page=link" method="POST" enctype="multipart/form-data">
+                                  <!-- Title -->
+                                  <div class="form-group">
+                                      <label>Title</label>
+                                      <input type="text" class="form-control" name="strTitle"/>
+                                  </div>
+                                  <!--Link -->
+                                  <div class="form-group">
+                                      <label>Link</label>
+                                      <input type="text" class="form-control" name="strLink"/>
+                                  </div>
+                                  <!-- Image -->
+                                  <div class="form-group">
+                                      <label>Select Image</label><br />
+                                      <input type="file" name="strImage"/>
+                                  </div>
+                                  <input type="hidden" class="form-control" name="nPageId" value="<?=$_GET['page']?>"/>
+                                <!-- Submit -->
+                                <input type="submit" class="btn btn-primary" value="Add">
+                            </form>
+                            <!-- Close Form -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Close Modal New Link -->
 
 </main>
 <!-- Close Container -->

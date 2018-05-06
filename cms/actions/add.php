@@ -16,6 +16,12 @@ if(isset($_GET["page"])) {
 
       header("location: ../pages.php");
     }
+    elseif($_GET["page"]=== "link"){
+      $imagePath = $CMSControl->uploadFile("strImage");
+      $result = $CMSControl->add("INSERT INTO extra_element_table (strExtraElement, nPageId) VALUES ('".$imagePath."|".$_POST["strTitle"]."|".$_POST["strLink"]."', '".$_POST["nPageId"]."' )");
+
+      header("location: ../content.php?page=".$_POST["nPageId"]."&temp=2");
+    }
 
 }
 
