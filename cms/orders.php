@@ -1,6 +1,6 @@
 <?php
-    include("partials/session-start.php");
-    include("partials/cmsheader.php");
+    include("../partials/session-start.php");
+    include("../partials/cmsheader.php");
     require_once("../classes/DBController.php");
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
@@ -18,7 +18,7 @@
 	<h1 class="cms-head">Orders</h1>
     <!-- Info Para -->
     <p class="descipt">
-      List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
+      List of all of your orders. Here you can view order details or delete an order by clicking on the icon.<br />You can also find an order by number or email by clicking on the search icon.<br />
       <!-- Find Order -->
       <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalfindorder"><i class="fa fa-search fa-lg"></i>  Find Order</button>
       <!-- See All Orders -->
@@ -225,4 +225,4 @@
 
 </main>
 <!-- Close Container -->
-<?php include("partials/cmsfooter.php"); ?>
+<?php include("../partials/cmsfooter.php"); ?>
