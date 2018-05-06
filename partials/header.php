@@ -30,7 +30,7 @@
         <!-- Logo -->
         <a href="index.php?id=Home"><img class="main-logo" src="assets/logo.jpg" alt="east van jam logo"/></a>
         <!-- Cart -->
-        <button class="cart" type="button" data-toggle="modal" data-target="MODAL-ID"><i class="fas fa-shopping-cart"></i> Cart</button>
+        <button class="cart" type="button" data-toggle="modal" data-target="#cart-modal"><i class="fas fa-shopping-cart"></i> Cart</button>
         <!-- Open Main Nav -->
         <nav class="main-nav">
             <ul class="nav">

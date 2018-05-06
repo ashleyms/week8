@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("partials/header.php");
 ?>
         <!-- Open Container -->
