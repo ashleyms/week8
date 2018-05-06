@@ -94,6 +94,10 @@ body, html {
   margin-bottom: 70px;
 }
 
+.template-btn{
+  margin-top: -50px;
+}
+
 /* TABLE ROWS */
 .pages tr:nth-child(even){
     background-color: #f2f2f2;
@@ -228,15 +232,15 @@ body, html {
 
 /* QUICK LINKS BACKGROUNDS */
 .back-prod{
-    background-image: url("../img/pages.jpg");
+    background-image: url("../assets/pages.jpg");
 }
 
 .back-test{
-    background-image: url("../img/product.jpg");
+    background-image: url("../assets/product.jpg");
 }
 
 .back-user{
-    background-image: url("../img/order.jpg");
+    background-image: url("../assets/order.jpg");
 }
 
 /* CMS QUICK LINKS */

@@ -1,11 +1,11 @@
 <?php
-    include("partials/session-start.php");
-    include("partials/cmsheader.php");
+    include("../partials/session-start.php");
+    include("../partials/cmsheader.php");
 ?>
 <!-- Open Container -->
 <main class="container-fluid">
 	<h1 class="cms-head">Welcome!</h1>
-    <p class="descipt">Click any link below to get started! From here you can add, edit and delete any of your products, pages or orders. If you need assistance please email help@email.com or call 604-123-5555.</p>
+    <p class="descipt">Click any link below to get started! From here you can add, edit and delete any of your products. In the pages tab you can see a list of all you pages and edit or add new ones. You can also manage all your orders within the order page. </p>
     <!-- Open Quick Links -->
     <section class="row">
         <!-- Add Products -->

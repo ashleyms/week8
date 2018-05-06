@@ -1,6 +1,6 @@
 <?php
-    include("partials/session-start.php");
-    include("partials/cmsheader.php");
+    include("../partials/session-start.php");
+    include("../partials/cmsheader.php");
     require_once("../classes/DBController.php");
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
@@ -11,7 +11,7 @@
   <!-- Heading -->
 	<h1 class="cms-head">Products</h1>
     <!-- Info Para -->
-    <p class="descipt">List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
+    <p class="descipt">List of products on your site. Here you can add, edit and delete products by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
         <!-- Add Product -->
         <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalnewpage"><i class="fa fa-plus fa-lg"></i>  New Product</button>
     </p>
@@ -262,4 +262,4 @@
             <!-- Close Modal New Product -->
 </main>
 <!-- Close Container -->
-<?php include("partials/cmsfooter.php"); ?>
+<?php include("../partials/cmsfooter.php"); ?>

@@ -1,6 +1,6 @@
 <?php
-    include("partials/session-start.php");
-    include("partials/cmsheader.php");
+    include("../partials/session-start.php");
+    include("../partials/cmsheader.php");
     require_once("../classes/DBController.php");
     require_once("../classes/cms.php");
     $CMSControl = new CMS();
@@ -217,4 +217,4 @@
 
 </main>
 <!-- Close Container -->
-<?php include("partials/cmsfooter.php"); ?>
+<?php include("../partials/cmsfooter.php"); ?>
