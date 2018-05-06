@@ -19,6 +19,14 @@ class Product extends DBController {
 			return $resultset;
 	}
 
-
+	function getProduct($sql) {
+		$result = mysqli_query($this->conn,$sql);
+		while($row=mysqli_fetch_assoc($result)) {
+			$resultset[] = $row;
+		}
+		if(!empty($resultset))
+			return $resultset;
+	}
 }
+
 ?>

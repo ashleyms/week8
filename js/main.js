@@ -1,55 +1,29 @@
-$("#step1-icon,#step2-back").click(function(){
-    $("#step2-left").css({"display": "none"});
-    $("#step2-right").css({"display": "none"});
-    $("#ste3-left").css({"display": "none"});
-    $("#step3-right").css({"display": "none"});
+// function to save box qty and then send it to step 2
+function saveBoxQty () {
+    var boxQty = document.getElementById('box-qty').value;
+    if(boxQty === "") {
+        boxQty = 1;
+    }
+    // set box quantity selected by user in a cookie 
+	cookieName = "boxQty";
+    cookieValue = boxQty;
+    document.cookie = cookieName + "=" + cookieValue + "; path=/;";
+    
+    // redirect user to step2 with the qty of boxes saved in a cookie
+	window.location.href = 'shop2.php?step=2';
+}
 
-    $("#step1-left").css({"display": "block"});
-    $("#step1-right").css({"display": "block"});
+function checkCondition(items) {
+    var itemMod = (items%3);
+    
+    if (itemMod !== 0 || items < 3){
+        document.getElementById('error-msg').style.display = "block";
+        return false;
+    } else {
+        window.location.href = 'shop2.php?step=3';
+    }
+}
 
-});
-
-$("#step1-icon").click(function(){
-    $("#step1-icon svg:first-child").css({"color": "black"});
-    $("#step2-icon svg:first-child").css({"color": "white"});
-    $("#step3-icon svg:first-child").css({"color": "white"});
-});
-
-$("#step2-back").click(function(){
-    $("#step1-icon svg:first-child").css({"color": "black"});
-    $("#step2-icon svg:first-child").css({"color": "white"});
-});
-
-$("#step2-icon, #step3-back, #step1-next").click(function(){
-    $("#step1-left").css({"display": "none"});
-    $("#step1-right").css({"display": "none"});
-    $("#step3-left").css({"display": "none"});
-    $("#step3-right").css({"display": "none"});
-
-    $("#step2-left").css({"display": "block"});
-    $("#step2-right").css({"display": "block"});
-});
-
-$("#step2-icon, #step1-next").click(function(){
-    $("#step1-icon svg:first-child").css({"color": "white"});
-    $("#step3-icon svg:first-child").css({"color": "white"});
-    $("#step2-icon svg:first-child").css({"color": "black"});
-});
-
-$("#step3-back").click(function(){
-    $("#step2-icon svg:first-child").css({"color": "black"});
-    $("#step3-icon svg:first-child").css({"color": "white"});
-});
-
-$("#step3-icon,#step2-next").click(function(){
-    $("#step1-left").css({"display": "none"});
-    $("#step1-right").css({"display": "none"});
-    $("#step2-left").css({"display": "none"});
-    $("#step2-right").css({"display": "none"});
-
-    $("#step3-left").css({"display": "block"});
-    $("#step3-right").css({"display": "block"});
-    $("#step3-icon svg:first-child").css({"color": "black"});
-    $("#step1-icon svg:first-child").css({"color": "white"});
-    $("#step2-icon svg:first-child").css({"color": "white"});
-});
+function clearCheckout() {
+    window.location.href = 'step1.php?session=clear';
+}

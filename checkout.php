@@ -1,8 +1,10 @@
 <?php
+    session_start();
     include("partials/header.php");
 ?>
     <!-- Shop Main Section -->
     <main class="container">
+        <a onclick="clearCheckout()" class="cancelCheckout"><i class="fas fa-chevron-left"></i> cancel checkout</a>
             <section class="row">
             <!-- Step 1 : Build A box -->
                 <!-- Step details and choose qty option -->
@@ -10,13 +12,13 @@
                 <div class="col-sm-12 col-md-7">
                     <div id="accordion">
                         <div class="card">
-                            <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <h3>Customer Info</h3>
-                                </button>
-                            </h5>
-                            </div>
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <h3>Customer Info</h3>
+                                    </h5>
+                                </div>
+                            </button>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
                                 <form method='POST' action='#'>
@@ -39,13 +41,13 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingTwo">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <h3>Payment Info</h3>
-                            </button>
-                        </h5>
-                        </div>
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingTwo">    
+                                <h5 class="mb-0">
+                                    <h3>Payment Info</h3>
+                                </h5>
+                            </div>
+                        </button>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
                                 <form method='POST' action='#'>
@@ -83,27 +85,25 @@
                 </div>
                 <!-- Box Image -->
                 <?php foreach ($arrPageContent as $shop) { ?>
-                <div class="col-sm-12 col-md-5">
+                <div class="col-sm-12 col-md-5 checkout-box">
                     <h3>order summary</h3>
                     <!-- Box with the choice of jam flavours added to cart -->
-                    <div class="cart-box">
-                        <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
-                        <div class="product-placeholder">
-                            <img src="assets/defaultProduct.jpg" alt="cart product" class="cart-product">
-                            <p>Product1</p>
-                            <p>$24</p>
+                    <article class="row">
+                        <!-- Loop Through All Products -->
+                        <div class="cart-box">
+                            <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
+                            <div class="row">
+                            <?php foreach ($_SESSION["cart_item"] as $item){ ?>
+                                <div class="product-placeholder col-sm-2 col-md-2">
+                                    <img src="assets/<?=$item["img"]?>" class="preview-img" alt="product preview image">
+                                    <p><?=$item["name"]?></p>
+                                    <p>Qty: <?=$item["quantity"]?></p>
+                                    <p><?="$".($item["price"]*$item["quantity"])?></p>
+                                </div>
+                            <?php } ?>
+                            </div>
                         </div>
-                        <div class="product-placeholder">
-                            <img src="assets/defaultProduct.jpg" alt="cart product" class="cart-product">
-                            <p>Product2</p>
-                            <p>$34</p>
-                        </div>
-                        <div class="product-placeholder">
-                            <img src="assets/defaultProduct.jpg" alt="cart product" class="cart-product">
-                            <p>Product3</p>
-                            <p>$44</p>
-                        </div>
-                    </div>
+                    </article>
                 </div>
                 <?php } ?>
                 <?php } ?>
