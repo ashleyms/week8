@@ -24,8 +24,31 @@ if(isset($_GET["page"])) {
         bFeatured = '".$_POST["bFeatured"]."',
   			strProductImg = '".$imagePath."'
   			WHERE id='".$_GET["id"]."'");
-        
+
   		  header("location: ../products.php");
+    }
+
+    if($_GET["page"]=== "pages"){
+      $arrBanner = $CMSControl->getResults("SELECT strHeroImage FROM `content_table` WHERE nPageId='".$_GET["id"]."'");
+
+      //If no banner use original
+      foreach ($arrBanner as $img) {
+        $imagePath = $CMSControl->uploadFile("strHeroImage");
+        if(!$imagePath){
+          $imagePath = $img["strHeroImage"];
+         }
+      }
+
+      $result = $CMSControl->add("UPDATE pages_table SET
+  			strName = '".$_POST["strName"]."'
+  			WHERE id='".$_GET["id"]."'");
+
+      $content = $CMSControl->add("UPDATE content_table SET
+    			strHeading = '".$_POST["strHeading"]."',
+          strHeroImage = '".$imagePath."'
+    			WHERE nPageId='".$_GET["id"]."'");
+
+  		 header("location: ../pages.php");
     }
 
 }

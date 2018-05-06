@@ -15,7 +15,9 @@
 	<h1 class="cms-head">Pages</h1>
     <!-- Info Para -->
     <p class="descipt">List of pages on your site. Here you can add, edit and delete pages by clicking on the icons.<br />Please note, deletion cannot be undone.<br />
-        <!-- Add Page -->
+      <i class=" fa fa-pencil-square-o fa-lg"></i>Quick Edit <br/>
+      <i class=" fa fa-file-text fa-lg"></i> Edit All Detailed Content <br/>
+       <!-- Add Page -->
         <button class="btn btn-success add-gal" data-toggle="modal" data-target="#modalnewpage"><i class="fa fa-plus fa-lg"></i>  New Page</button>
     </p>
 
@@ -23,7 +25,7 @@
     <table class="pages gallery-table">
         <!-- Headings -->
         <tr>
-            <th>Name</th><th>URL</th>
+            <th>Name</th>
         </tr>
         <!-- Loop through Products -->
         <?php if($arrPages){
@@ -32,12 +34,18 @@
             <!-- Display Name -->
             <td class="textRow"><?=$page["strName"]?></td>
             <!-- Display URL -->
-            <td class="textRow"><?=$page["strPageUrl"]?></td>
+            <!-- <td class="textRow"><?=$page["strPageUrl"]?></td> -->
             <!-- Edit Button -->
             <td>
                 <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$page["nPageID"]?>">
                     <i class=" fa fa-pencil-square-o fa-lg"></i>
                 </button>
+            </td>
+            <!-- Edit Button -->
+            <td>
+                <a class="btn btn-lg" href="content.php?page=<?=$page["nPageID"]?>">
+                    <i class=" fa fa-file-text fa-lg"></i>
+                </a>
             </td>
             <!-- Delete Button -->
             <td>
@@ -113,7 +121,7 @@
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <!-- Open Form -->
-                        <form action="../actions/edit.php?id=<?=$page["nPageID"]?>&page=product" method="POST" enctype="multipart/form-data">
+                        <form action="actions/edit.php?id=<?=$page["nPageID"]?>&page=pages" method="POST" enctype="multipart/form-data">
                               <!-- Name -->
                               <div class="form-group">
                                   <label>Name</label>
@@ -193,15 +201,12 @@
                                 </div>
                                 <!--Template -->
                                 <div class="form-group">
-                                    <label>Select Template</label>
+                                    <label>Select Template</label><br/>
                                     <select name="nTemplateID">
                                       <option value="1">2 Column Grid</option>
-                                      <option value="2">Media Template</option>
-                                      <option value="3">Contact Form</option>
+                                      <option value="2">Media Box Template</option>
                                     </select>
                                 </div>
-
-
                               <!-- Submit -->
                               <input type="submit" class="btn btn-primary" value="Save">
                           </form>
@@ -210,7 +215,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Close Modal New Testimonial -->
+            <!-- Close Modal New Page -->
 
 </main>
 <!-- Close Container -->

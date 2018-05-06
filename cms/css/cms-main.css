@@ -81,6 +81,10 @@ body, html {
     height: 200px;
 }
 
+.content-form{
+  width: 600px;
+}
+
 /* TABLE ROWS */
 .pages tr:nth-child(even){
     background-color: #f2f2f2;
