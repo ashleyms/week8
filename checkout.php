@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div><br><br>
-                    <a class="btn" href="#">clear</a>
+                    <a class="btn" href="shop2.php?step=2">Back</a>
                     <a class="btn btn-primary" href="#">place order</a>
                 </div>
                 <!-- Box Image -->

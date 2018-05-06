@@ -11,11 +11,15 @@
             $Step1 = 'hide';
             $Step2 = 'show';
             $Step3 = 'hide';
+            $step2Dot = 'blackDot';
+            $step3Dot = 'whiteDot';
         break;
         case 3:
             $Step1 = 'hide';
             $Step2 = 'hide';
             $Step3 = 'show';
+            $step2Dot = 'whiteDot';
+            $step3Dot = 'blackDot';
         break;
     }
     
@@ -74,7 +78,7 @@
                         <div></div>
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle whiteDot"></i>
                                 <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
@@ -87,7 +91,7 @@
                         <div></div>
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle <?=$step2Dot?>"></i>
                                 <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
@@ -99,7 +103,7 @@
                         </div>
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle <?=$step3Dot?>"></i>
                                 <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>

@@ -18,7 +18,7 @@
                         <div></div>
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle blackDot"></i>
                                 <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
@@ -31,7 +31,7 @@
                         <div></div>
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle whiteDot"></i>
                                 <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="fa-lg">
                             <span class="fa-layers fa-fw">
-                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle whiteDot"></i>
                                 <!-- <i class="fa-inverse fas fa-check" data-fa-transform="shrink-6"></i> -->
                             </span>
                         </div>
