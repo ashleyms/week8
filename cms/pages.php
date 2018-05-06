@@ -33,8 +33,6 @@
         <tr>
             <!-- Display Name -->
             <td class="textRow"><?=$page["strName"]?></td>
-            <!-- Display URL -->
-            <!-- <td class="textRow"><?=$page["strPageUrl"]?></td> -->
             <!-- Edit Button -->
             <td>
                 <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit<?=$page["nPageID"]?>">
@@ -43,7 +41,7 @@
             </td>
             <!-- Edit Button -->
             <td>
-                <a class="btn btn-lg" href="content.php?page=<?=$page["nPageID"]?>">
+                <a class="btn btn-lg" href="content.php?page=<?=$page["nPageID"]?>&temp=<?=$page["nTemplateID"]?>">
                     <i class=" fa fa-file-text fa-lg"></i>
                 </a>
             </td>

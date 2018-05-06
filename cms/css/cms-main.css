@@ -85,6 +85,15 @@ body, html {
   width: 600px;
 }
 
+.text-lg{
+  min-height: 240px;
+}
+
+.btn-bottom{
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
+
 /* TABLE ROWS */
 .pages tr:nth-child(even){
     background-color: #f2f2f2;
@@ -107,6 +116,10 @@ body, html {
 .pages .modal-textRow {
     min-width: 105px;
     padding: 15px;
+}
+
+.add-link{
+  margin-bottom: 30px;
 }
 
 /* TABLE IMAGE */

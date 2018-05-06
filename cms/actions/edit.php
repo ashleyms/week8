@@ -50,6 +50,32 @@ if(isset($_GET["page"])) {
 
   		 header("location: ../pages.php");
     }
+    if($_GET["page"]=== "content"){
+      $arrImg = $CMSControl->getResults("SELECT strImage FROM `content_table` WHERE nPageId='".$_GET["id"]."'");
+      //If no img use original
+      foreach ($arrImg as $img) {
+        $imagePath = $CMSControl->uploadFile("strImage");
+        if(!$imagePath){
+          $imagePath = $img["strImage"];
+         }
+      }
+
+      //Home, About, Shop
+      if($_GET["id"] == 1 || $_GET["id"] == 2 || $_GET["id"] == 5){
+        $result = $CMSControl->add("UPDATE content_table SET
+            strSubHeading = '".$_POST["strSubHeading"]."',
+            strText = '".$_POST["strText"]."',
+            strImage = '".$imagePath."'
+            WHERE nPageId='".$_GET["id"]."'");
+      }
+      //Contact
+      if($_GET["id"] == 6){
+        $result = $CMSControl->add("UPDATE content_table SET
+            strText = '".$_POST["strText"]."'
+            WHERE nPageId='".$_GET["id"]."'");
+      }
+  		 header("location: ../pages.php");
+    }
 
 }
 
