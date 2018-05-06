@@ -17,7 +17,7 @@
                 <!-- If About -->
                 <?php if($_GET['id'] === "About") { ?>
                 <!-- Button -->
-                <a class="btn btn-primary add-margin"><?=$arrExtraContent[0]['strExtraElement']?></a>
+                <!-- <a class="btn btn-primary add-margin"><?=$arrExtraContent[0]['strExtraElement']?></a> -->
                 <?php
                 }
                 ?>
@@ -53,4 +53,4 @@
             }
           ?>
         </main>
-    <?php include("partials/footer.php"); ?>
+    <?php  include("partials/footer.php");  ?>
