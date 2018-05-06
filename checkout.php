@@ -84,6 +84,7 @@
                     <a class="btn btn-primary" href="#">place order</a>
                 </div>
                 <!-- Box Image -->
+
                 <?php foreach ($arrPageContent as $shop) { ?>
                 <div class="col-sm-12 col-md-5 checkout-box">
                     <h3>order summary</h3>
@@ -93,14 +94,15 @@
                         <div class="cart-box">
                             <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
                             <div class="row">
-                            <?php foreach ($_SESSION["cart_item"] as $item){ ?>
+                            <?php if(isset($_SESSION["cart_item"])) { 
+                                foreach ($_SESSION["cart_item"] as $item){ ?>
                                 <div class="product-placeholder col-sm-2 col-md-2">
                                     <img src="assets/<?=$item["img"]?>" class="preview-img" alt="product preview image">
                                     <p><?=$item["name"]?></p>
                                     <p>Qty: <?=$item["quantity"]?></p>
                                     <p><?="$".($item["price"]*$item["quantity"])?></p>
                                 </div>
-                            <?php } ?>
+                            <?php } }?>
                             </div>
                         </div>
                     </article>

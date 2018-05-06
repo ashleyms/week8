@@ -29,12 +29,12 @@
                 if(!empty($_POST["quantity"])) {                 
                     $productByCode = $productList->getProduct("SELECT * FROM product_table WHERE strCode='" . $_GET["code"] . "'");
                     
-                    $itemArray = array($productByCode[0]["strCode"]=>array('img'=>$productByCode[0]["strProductImg"], 'name'=>$productByCode[0]["strProductName"], 'code'=>$productByCode[0]["strCode"], 'inStock'=>$productByCode[0]["nProductQty"], 'quantity'=>$_POST['quantity'], 'price'=>$productByCode[0]["nProductPrice"]));
+                    $itemArray = array($productByCode["strCode"]=>array('img'=>$productByCode["strProductImg"], 'name'=>$productByCode["strProductName"], 'code'=>$productByCode["strCode"], 'inStock'=>$productByCode["nProductQty"], 'quantity'=>$_POST['quantity'], 'price'=>$productByCode["nProductPrice"]));
 
                     if(!empty($_SESSION["cart_item"])) {
-                        if(in_array($productByCode[0]["strCode"],array_keys($_SESSION["cart_item"]))) {
+                        if(in_array($productByCode["strCode"],array_keys($_SESSION["cart_item"]))) {
                             foreach($_SESSION["cart_item"] as $k => $v) {
-                                    if($productByCode[0]["strCode"] == $k) {
+                                    if($productByCode["strCode"] == $k) {
                                         if(empty($_SESSION["cart_item"][$k]["quantity"])) {
                                             $_SESSION["cart_item"][$k]["quantity"] = 0;
                                         }
@@ -169,7 +169,7 @@
                                     <img src="assets/<?=$arrAllProduct[$key]["strProductImg"] ?>" class="product-img" alt="products">
                                 </div>
                                 <div>
-                                    <h3><?=$arrAllProduct[$key]["strProductName"] ?></h3>
+                                    <h3 data-toggle="modal" data-target="#detailmodal<?=$arrAllProduct[$key]["id"]?>"><?=$arrAllProduct[$key]["strProductName"] ?></h3>
                                     <p><?=$arrAllProduct[$key]['strProductDescription']?></p>
                                 </div>
                                 <div><?="$".$arrAllProduct[$key]["nProductPrice"] ?></div>
