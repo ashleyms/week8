@@ -94,6 +94,10 @@ body, html {
   margin-bottom: 70px;
 }
 
+.template-btn{
+  margin-top: -50px;
+}
+
 /* TABLE ROWS */
 .pages tr:nth-child(even){
     background-color: #f2f2f2;

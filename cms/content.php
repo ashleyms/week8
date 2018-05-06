@@ -9,6 +9,14 @@
     LEFT JOIN content_table
     ON pages_table.id = content_table.nPageId
     WHERE pages_table.id = '" . $_GET['page']. "'");
+
+    //Data from Extra content Table
+    $arrExtraContent = $CMSControl->getResults("SELECT extra_element_table.strExtraElement, extra_element_table.id
+    FROM `pages_table`
+    LEFT JOIN extra_element_table
+    ON pages_table.id = extra_element_table.nPageId
+    WHERE pages_table.id = '".$_GET['page']."'
+    ORDER BY extra_element_table.id ASC");
 ?>
 <!-- Open Container -->
 <main class="container-fluid">
@@ -67,14 +75,6 @@
 
         //Template 2 -MEDIA
         if($_GET['temp'] == 2){
-          //Data from Extra content Table
-          $arrExtraContent = $CMSControl->getResults("SELECT extra_element_table.strExtraElement, extra_element_table.id
-          FROM `pages_table`
-          LEFT JOIN extra_element_table
-          ON pages_table.id = extra_element_table.nPageId
-          WHERE pages_table.id = '".$_GET['page']."'
-          ORDER BY extra_element_table.id ASC");
-
           ?>
           <!-- Add Link -->
            <button class="btn btn-success add-link" data-toggle="modal" data-target="#modalnewlink"><i class="fa fa-plus fa-lg"></i>  New Link</button>
@@ -105,12 +105,14 @@
               ?>
               <!-- Close Loop -->
           </table>
+          <a href="pages.php" class="btn btn-danger template-btn"> Back</a>
           <!-- Close Table -->
           <?php
           }
 
-          //Template 1 - 2 column
-          if($_GET['temp'] == 1){
+
+          //Template 1 - Two column
+          if($_GET['temp'] == 1 && $_GET['page'] != 2){
             //Data from Extra content Table
             $arrExtraContent = $CMSControl->getResults("SELECT extra_element_table.strExtraElement, extra_element_table.id
             FROM `pages_table`
@@ -128,15 +130,39 @@
                 <tr>
                     <th>Title</th><th>Text</th>
                 </tr>
+                <?php if($_GET['page'] == 3) { ?>
+                <tr>
+                  <td class="textRow"><?=$content['strSubHeading']?></td>
+                  <td class="textRow"><?=$content['strText']?></td>
+                  <!-- Edit Button -->
+                  <td>
+                      <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit3">
+                          <i class=" fa fa-pencil-square-o fa-lg"></i>
+                      </button>
+                  </td>
+                  <!-- Delete Button -->
+                  <td>
+                      <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$content["id"]?>">
+                           <i class=" fa fa-trash fa-lg size"></i>
+                      </button>
+                  </td>
+                </tr>
                 <!-- Loop through links -->
                 <?php
+                  }
                     foreach ($arrExtraContent as $extra) {
-                    $data = explode("|", $extra['strExtraElement']); ?>
+                    $data = explode("|", $extra['strExtraElement']);?>
                 <tr>
                     <!-- Display Title -->
                     <td class="textRow"><?=$data[0]?></td>
                     <!-- Display Link -->
                     <td class="textRow"><?=$data[2]?></td>
+                    <!-- Edit Button -->
+                    <td>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#modaleditextra<?=$extra["id"]?>">
+                            <i class=" fa fa-pencil-square-o fa-lg"></i>
+                        </button>
+                    </td>
                     <!-- Delete Button -->
                     <td>
                         <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$extra["id"]?>">
@@ -150,8 +176,10 @@
                 <!-- Close Loop -->
             </table>
             <!-- Close Table -->
+            <a href="pages.php" class="btn btn-danger template-btn"> Back</a>
             <?php
-            }?>
+              }
+            ?>
 
           <!-- ************ MODAL WINDOWS ************ -->
 
@@ -286,6 +314,112 @@
                       </div>
                   </div>
                   <!-- Close Modal New Column -->
+
+                  <!-- Modal Edit Recipe -->
+                  <?php foreach ($arrContent as $content) { ?>
+                      <div class="modal fade" id="modaledit3" tabindex="-1" role="dialog"
+                           aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">
+                                          Edit: <?=$content["strSubHeading"]?>
+                                      </h4>
+                                      <button type="button" class="close" data-dismiss="modal">
+                                             <span aria-hidden="true">&times;</span>
+                                             <span class="sr-only">Close</span>
+                                      </button>
+                                  </div>
+
+                                  <!-- Modal Body -->
+                                  <div class="modal-body">
+                                      <!-- Open Form -->
+                                      <form action="actions/edit.php?id=3&page=content" method="POST" enctype="multipart/form-data">
+                                            <!-- Name -->
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" name="strSubHeading" value="<?=$content["strSubHeading"]?>"/>
+                                            </div>
+                                            <!--Heading -->
+                                            <div class="form-group">
+                                                <label>Text</label>
+                                                <textarea class="form-control text-lg" name="strText"><?=$content["strText"]?>></textarea>
+                                            </div>
+                                            <!-- Banner Image -->
+                                            <div class="form-group">
+                                                <label>Image</label><br />
+                                                <img class="thumb-banner" src="../assets/<?=$content["strImage"]?>"/>
+                                                <input type="file" name="strImage"/>
+                                            </div>
+                                            <input type="hidden" name="nPageId" value="<?=$_GET["page"]?>"/>
+                                            <input type="hidden" name="blankImg" value="<?=$content["strImage"]?>"/>
+
+                                            <!-- Submit -->
+                                            <input type="submit" class="btn btn-primary" value="Save">
+                                      </form>
+                                      <!-- Close Form -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                      }?>
+                      <!-- Close Modal Edit Recipe -->
+
+                  <!-- Modal Edit Extra -->
+                  <?php foreach ($arrExtraContent as $extra) {
+                  $data = explode("|", $extra['strExtraElement']); ?>
+                      <div class="modal fade" id="modaleditextra<?=$extra["id"]?>" tabindex="-1" role="dialog"
+                           aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <!-- Modal Header -->
+                                  <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">
+                                          Edit: <?=$data[0]?>
+                                      </h4>
+                                      <button type="button" class="close" data-dismiss="modal">
+                                             <span aria-hidden="true">&times;</span>
+                                             <span class="sr-only">Close</span>
+                                      </button>
+                                  </div>
+
+                                  <!-- Modal Body -->
+                                  <div class="modal-body">
+                                      <!-- Open Form -->
+                                      <form action="actions/edit.php?id=<?=$extra["id"]?>&page=extra" method="POST" enctype="multipart/form-data">
+                                            <!-- Name -->
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" name="strTitle" value="<?=$data[0]?>"/>
+                                            </div>
+                                            <!--Heading -->
+                                            <div class="form-group">
+                                                <label>Text</label>
+                                                <textarea class="form-control text-lg" name="strText"><?=$data[2]?></textarea>
+                                            </div>
+                                            <!-- Banner Image -->
+                                            <div class="form-group">
+                                                <label>Image</label><br />
+                                                <img class="thumb-banner" src="../assets/<?=$data[1]?>"/>
+                                                <input type="file" name="strImage"/>
+                                            </div>
+                                            <input type="hidden" name="nPageId" value="<?=$_GET["page"]?>"/>
+                                            <input type="hidden" name="blankImg" value="<?=$data[1]?>"/>
+
+                                            <!-- Submit -->
+                                            <input type="submit" class="btn btn-primary" value="Save">
+                                      </form>
+                                      <!-- Close Form -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <?php
+                      }?>
+                      <!-- Close Modal Edit Extra -->
+
 
 </main>
 <!-- Close Container -->
