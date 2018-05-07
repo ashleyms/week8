@@ -82,7 +82,6 @@
           			        </div>
           		</div>
               <?php } ?>
-
         </main>
     <?php
 

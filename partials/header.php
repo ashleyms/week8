@@ -31,7 +31,7 @@
         <a href="index.php?id=Home"><img class="main-logo" src="assets/logo.jpg" alt="east van jam logo"/></a>
         <!-- Cart -->
         <button id="cart" class="cart" type="button" data-toggle="modal" data-target="#cart-modal"><i class="fas fa-shopping-cart"></i> Cart</button>
-        <!-- cart summary -->
+        <!-- cart summary window on hover -->
         <div class="cart-table" id="cart-summary">
             <table class="table table-striped">
                 <thead>
@@ -41,9 +41,9 @@
                 </thead>
                 <tbody>
                     <?php if(isset($_SESSION["cart_item"])) { 
-                    $totalQty = 0;	
-                    foreach ($_SESSION["cart_item"] as $item) { 
-                    $itemTotal = ($item["price"]*$item["quantity"]); ?>
+                        $totalQty = 0;	
+                        foreach ($_SESSION["cart_item"] as $item) { 
+                            $itemTotal = ($item["price"]*$item["quantity"]); ?>
                     <tr>
                         <td><img src="assets/<?=$item["img"]?>" alt="preview of product"></td>
                         <td>
@@ -57,15 +57,20 @@
                     <?php $totalQty += intval($item["quantity"]); } ?>
                     <tr>
                         <td colspan="3">
-                        <p><small class="red" id="err-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p></tr>
-                        </td></tr>
+                            <!-- error message to remind user to buy min 3 products -->
+                            <p><small class="red" id="err-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p></tr>
+                        </td>
+                    </tr>
                         <td colspan="1">
                             <a type="button" class="btn btn-primary" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
+                        </td>
+                        <td colspan="2">
+                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a> 
                         </td>
                     <?php } else { ?>
                     <tr>
                         <td colspan="3">
-                            <p>No itms in cart!</p>
+                            <p>No items in cart!</p>
                         </td>
                     </tr>
                     <tr>
