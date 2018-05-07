@@ -17,6 +17,10 @@ input {
   width: 50px; 
 }
 
+body .big-input {
+  width: auto;  
+}
+
 .red {
   color: red;
 }

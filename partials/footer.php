@@ -8,8 +8,8 @@
                     Join our mailing list to receive exclusive offers <br />and be the first to hear about new products!
                 </p>
                 <form action="#" method="post">
-                    <input type="email" name="email" class="newsletter-input" placeholder="email@example.com" required/>
-                    <input type="submit" class="btn btn-primary" value="SIGN UP">
+                    <input type="email" name="email" class="newsletter-input big-input" placeholder="email@example.com" required/>
+                    <input type="submit" class="btn btn-primary big-input" value="SIGN UP">
                 </form>
               <!-- Close Email Form -->
             </div>

@@ -83,7 +83,7 @@
                     </div>
                 </div><br><br>
                 <a class="btn" href="shop2.php?step=2">Back</a>
-                <input type="submit" class="btn btn-primary" value="place order" />
+                <input type="submit" class="btn btn-primary big-input" value="place order" />
             </form>
             </div>
             <!-- Box Image -->
