@@ -60,7 +60,7 @@
                     <!-- on submit sending form data to js function  -->
                     <form method="post" action="javascript:saveBoxQty();">
                         <label>qty</label>
-                        <input type="number" id="box-qty" min="1" max="10"/><br>
+                        <input type="number" id="box-qty" min="1" max="10" value="1"/><br>
                         <small>*A box can be formed by minimum 3 jam bottles </small></p>
                         <button class="btn btn-primary add" type="submit">next step</button>
                     </form>                    

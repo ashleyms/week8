@@ -174,7 +174,7 @@
                                 <div><?="$".$arrAllProduct[$key]["nProductPrice"] ?></div>
                                 <div>
                                     <label>qty</label>
-                                    <input type="number" name="quantity" min="1" max="<?=$arrAllProduct[$key]['nProductQty']?>"/>
+                                    <input type="number" name="quantity" value="1" min="1" max="<?=$arrAllProduct[$key]['nProductQty']?>"/>
                                     <button class="btn btn-primary add" type="submit" >Add to Box</button>
                                 </div>
                             </form>
