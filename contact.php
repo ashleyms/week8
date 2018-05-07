@@ -1,13 +1,13 @@
 <?php
     session_start();
     include("partials/header.php");
-    
+
 ?>
         <!-- Contact Main Section -->
     <main class="container">
         <!-- Contact Form -->
         <form method='POST' action='#' name="sentMessage" id="contactForm" class="contact-form">
-            <p><?=$arrPageContent[0]['strText'];?></p>
+            <p class="contact-text"><?=$arrPageContent[0]['strText'];?></p>
             <div class="row">
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group">
@@ -23,7 +23,7 @@
                         <textarea name="str-message" class="form-control" placeholder="Your Message *" id="message" required="" data-validation-required-message="Please enter a message." rows="4"></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="submit" class="btn btn-primary" >Send Message</button>                        
+                        <button type="submit" name="submit" class="btn btn-primary" >Send Message</button>
                     </div>
                 </div>
             </div>

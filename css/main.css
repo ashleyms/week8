@@ -478,4 +478,9 @@ body .cart-table tbody p {
   body .table th, .table td {
       padding: 0.5rem;
  }
+
+ /* CONTACT */
+ .contact-text{
+   visibility: hidden;
+ }
 }
