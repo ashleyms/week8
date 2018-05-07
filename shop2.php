@@ -150,7 +150,7 @@
                             $items = 0;
                         }
                     }?>
-                    <p><small id="error-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p>
+                    <p><small class="red" id="err-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p>
                     <a class="btn" href="step1.php">back</a>
                     <!-- <a class="btn btn-primary" href="shop2.php?step=3&items=" >next step</a>                     -->
                     <a class="btn btn-primary" onclick="checkCondition('<?=$items?>')">next step</a>

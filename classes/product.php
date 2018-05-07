@@ -34,6 +34,8 @@ class Product extends DBController {
 			return $row;
 		}
 	}
+
+	
 }
 
 ?>

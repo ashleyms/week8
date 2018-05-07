@@ -13,6 +13,10 @@ h1, h2, h3, a, label {
   text-transform: capitalize;
 }
 
+.red {
+  color: red;
+}
+
 /* Header */
 .main-header {
     padding-top: 10px;
@@ -283,6 +287,10 @@ body .box-img {
   width: 350px;
 }
 
+#err-msg {
+  display: none;
+}
+
 .summary-table {
   margin:40px 0;
   width: 450px;
@@ -300,6 +308,32 @@ body .box-img {
 
 .cancelCheckout {
   cursor: pointer;
+}
+
+body .cart-table tbody td:first-child{
+  width: 20px; 
+}
+
+body .cart-table tbody td{
+  padding: 5px;
+}
+
+body .cart-table {
+  width: 30%; 
+  display: none;
+  position: absolute;
+  right: 32px;
+  top: 36%;
+  background: white;
+}
+
+body .cart-table img{
+  width: 60px; 
+}
+
+body .cart-table tbody p {
+  margin-bottom: 5px;
+  font-size: 12px;
 }
 
 /* Footer */

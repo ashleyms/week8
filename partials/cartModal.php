@@ -20,7 +20,7 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Qty</th>
-                                        <th scope="col">Total</th>
+                                        <th scope="col" colspan="2">Total</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -36,10 +36,12 @@
                                         <td><?=$item["price"]?></td>
                                         <td><?=$item["quantity"]?></td>
                                         <td><?=$itemTotal?></td>
+                                        <td><a href="shop2.php?step=2&action=remove&code=<?=$item["code"]?>"><i class="far fa-trash-alt"></i></a>
+                                </td>
                                     </tr>
                                     <?php $orderTotal += $itemTotal; }?>
                                     <tr>
-                                        <td colspan="4" style="text-align:right">Total:</td>
+                                        <td colspan="4">Total:</td>
                                         <td><?=$orderTotal?></td>
                                     </tr>
                                     </tbody>
@@ -66,7 +68,5 @@
                     </div>
 				</div>
 			</div>
-		</div>
-
-        <div>
+        </div>
         

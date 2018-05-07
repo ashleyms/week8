@@ -2,9 +2,13 @@
     session_start();
     include("partials/header.php");
     $arrFeaturedProduct = $productList->getFeaturedProducts();
+     
 ?>
         <!-- Open Container -->
         <main class="container">
+        <?php if($_GET['msg'] === 'success') { ?>
+            <p class="alert alert-success"> Your order has been placed successfully! :)</p>
+        <?php }?>
           <!-- Featured Products -->
           <section class="row">
             <?php foreach ($arrFeaturedProduct as $product) { ?>
