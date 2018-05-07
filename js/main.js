@@ -34,10 +34,18 @@ $(document).ready(function(){
     $('#cart').mouseover(function(){
         $('#cart-summary').css("display", "block");
     });
+    $('.container').on("click", function() {
+        $('#cart-summary').css("display", "none");
+    });
 });
 
-function runscript() {
-    console.log('hey');
-    // document.custInfo.submit();
-    // document.paymentInfo.submit();
-}
+$(document).on("scroll", function(){
+    if ($(document).scrollTop() > 200){
+        // $("header").addClass("shrink");
+        $('header .main-logo').css({"width": "45px", "right": "auto", "left": "2%"});
+        $('header .main-nav').css({"margin-top": "10px"});
+    } else {
+        $('header .main-logo').css({"width": "85px", "right": "0", "left": "0"});
+        $('header .main-nav').css({"margin-top": "90px"});
+    }
+});

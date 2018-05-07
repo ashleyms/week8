@@ -13,6 +13,10 @@ h1, h2, h3, a, label {
   text-transform: capitalize;
 }
 
+input {
+  width: 50px; 
+}
+
 .red {
   color: red;
 }
@@ -27,6 +31,10 @@ h1, h2, h3, a, label {
     background-color: white;
 }
 
+.shrink {
+  padding: 100px 0
+}
+
 /* Logo */
 .main-logo {
     width: 90px;
@@ -35,6 +43,7 @@ h1, h2, h3, a, label {
     right: 0;
     position: absolute;
     z-index: 20;
+    transition: all 2s;
 }
 
 /* Main Nav */
@@ -46,6 +55,7 @@ h1, h2, h3, a, label {
   -webkit-box-shadow: 0px 10px 15px -12px rgba(0,0,0,0.52);
   -moz-box-shadow: 0px 10px 15px -12px rgba(0,0,0,0.52);
   box-shadow: 0px 10px 15px -12px rgba(0,0,0,0.52);
+  transition: all 2s;
 }
 
 .main-nav ul {
@@ -214,7 +224,7 @@ body #step1-icon div:nth-child(2),
   background: black;
   position: absolute;
   top: 60px;
-  right: 47%;
+  right: 35%;
 }
 
 body .container .show {
@@ -227,6 +237,14 @@ body .container .hide {
 
 .shop-product {
   margin: 10px 0;
+}
+
+body .show .shop-product p {
+  font-size: 13px;
+}
+
+body .show .shop-product h3 {
+  font-size: 1.4rem;
 }
 
 .steps {
@@ -370,3 +388,108 @@ body .cart-table tbody p {
     position: static;
   }
 }
+
+@media only screen and (max-width:580px) {
+  body .hero h1{
+    font-size: 3rem;
+  }
+
+  label {
+    padding-right: 5px;
+  }
+
+  .horizontal {
+    display:flex;
+    margin-bottom: 40px;
+  }
+
+  body #step1-icon, #step2-icon, #step3-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+  }
+
+  body .step-div {
+    padding-bottom: 50px;
+    width: auto;
+    padding: 0 20px;
+    margin: 0;
+  }
+
+  body .fa-lg {
+    padding: 0 45px;
+  }
+
+  body #step1-icon div:nth-child(2),
+  #step2-icon div:nth-child(2) {
+    height: 2px;
+    width: 120px;
+    top: 120px;
+    right: -50%;
+  }
+
+  body .summary-table {
+    width: 345px;
+  }
+
+  body .cart-box {
+    margin: auto;
+  }
+
+  .checkout-box {
+    margin-top: 50px; 
+  }
+
+  body .container .contact-form {
+    position: absolute;
+    top: 39%;
+    right: 5%;
+    margin: 0;
+    width: 85%;
+  }
+
+  body .main-nav li a {
+    padding: 0;
+  }
+
+  .main-nav li {
+    width: 16%;
+  }
+
+  .main-nav ul {
+    display: block;
+  }
+
+  body .main-nav {
+    margin-top: 79px;
+  }
+
+  body .main-logo {
+    width: 60px;
+    left: 3%;
+    right: inherit;
+  }
+
+  body .cart-table {
+    width: 70%;
+  }
+
+  /* shopping cart */
+  .modal-body {
+    padding: 0;
+  }
+
+  .preview-img {
+    width: 43px;
+  }
+
+  body .modal-title {
+    font-size: 2rem;
+  }
+
+  body .table th, .table td {
+    padding: 0.5rem;
+  }
+}
+

@@ -7,7 +7,6 @@
             die();
         break;
         case 2:
-            $count = 0;
             $Step1 = 'hide';
             $Step2 = 'show';
             $Step3 = 'hide';
@@ -69,7 +68,7 @@
         <main class="container">
             <!-- Side Navbar for steps directio -->
             <section class="row">
-                <article class="col-sm-2 col-md-2">
+                <article class="col-sm-2 col-md-2 horizontal">
                     <div id="step1-icon">
                         <div class="step-div">
                             <img src="assets/defaultProduct.jpg" alt="step 1" class="step-icon">

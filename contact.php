@@ -6,7 +6,6 @@
         <!-- Contact Main Section -->
         <main class="container">
             <!-- Contact Form -->
-            
             <form method='POST' action='#' name="sentMessage" id="contactForm" class="contact-form">
                 <p><?=$arrPageContent[0]['strText'];?></p>
                 <div class="row">
