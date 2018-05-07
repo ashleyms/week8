@@ -246,7 +246,7 @@ body .box-img {
   margin: auto;
   display: block;
   margin-top: -50px;
-  border: solid 10px white 
+  border: solid 10px white
 }
 .product-placeholder {
   position: relative;
@@ -340,17 +340,42 @@ body .cart-table tbody p {
   line-height: 30px;
 }
 
+/* MEDIA QUERIES */
+/* Resizing 1200 */
+@media only screen and (min-width:1200px) {
+  /* Step Lines */
+  body #step1-icon div:nth-child(2),
+  #step2-icon div:nth-child(2) {
+    right: 47%;
+  }
+
+}
+/* Resizing 992 */
+@media only screen and (max-width:992px) {
+  /* Step Lines */
+  body #step1-icon div:nth-child(2),
+  #step2-icon div:nth-child(2) {
+    right: 14%;
+    top: 65px;
+  }
+
+}
+
 /* Resizing 760 */
 @media only screen and (max-width:760px) {
- /* Position 2 Column Template Image To Static */
+  /* Position 2 Column Template Image To Static */
   .flip:nth-of-type(2n+1) .flip-img{
-      position: static;
+    position: static;
   }
-  body .btn {
-    padding: 5px;
-    font-size: 0.8rem;
+
+  /* Step Lines */
+  body #step1-icon div:nth-child(2),
+  #step2-icon div:nth-child(2) {
+    right: -20%;
+    top: 60px;
   }
 }
+
 
 /* RESIZE FOR MOBILE */
 @media only screen and (max-width:580px) {
