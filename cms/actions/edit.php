@@ -52,6 +52,7 @@ if(isset($_GET["page"])) {
           strHeroImage = '".$imagePath."'
     			WHERE nPageId='".$_GET["id"]."'");
 
+      header("location: ../pages.php");
     }
 
     if($_GET["page"]=== "content"){

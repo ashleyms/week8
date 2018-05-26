@@ -530,6 +530,12 @@ body .cart-table tbody p {
     font-size: 3rem;
  }
 
+ .home-hero h1{
+   font-size: 5.5rem !important;
+   margin-left: 0;
+   margin-top: -20px;
+ }
+
  /* STEP DIRECTION */
   .horizontal {
       display:flex;
