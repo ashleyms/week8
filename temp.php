@@ -11,7 +11,7 @@
           <section class="row">
             <div class="col-sm-12 col-md-6">
                 <!-- SubHeading -->
-                <h3><?=$temp['strSubHeading']?></h3>
+                <h2><?=$temp['strSubHeading']?></h2>
                 <!-- Text -->
                 <p><?=$temp['strText']?></p>
             </div>
@@ -37,7 +37,7 @@
               </div>
               <!-- Text -->
               <div class="col-sm-12 col-md-6">
-                  <h3><?=$data[0]?></h3>
+                  <h2><?=$data[0]?></h2>
                   <p><?=$data[2]?></p>
               </div>
             </section>
