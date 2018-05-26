@@ -30,7 +30,7 @@
             <div class="col-sm-12 col-md-6 product">
               <h3><?=$home['strSubHeading']?></h3>
               <p><?=$home['strText']?></p>
-              <a class="btn btn-primary add-margin" href="step1.php?id=Shop"><?=$arrExtraContent[0]['strExtraElement']?></a>
+              <a class="btn btn-main add-margin" href="step1.php?id=Shop"><?=$arrExtraContent[0]['strExtraElement']?></a>
             </div>
             <div class="col-sm-12 col-md-6 product-img">
               <img src="assets/<?=$home['strImage']?>" alt="products"/>
@@ -75,7 +75,7 @@
                               </div>
                               <div class="modal-footer">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  <a type="button" class="btn btn-primary" href="step1.php">continue shopping</a>
+                                  <a type="button" class="btn btn-primary" href="step1.php?id=Shop">Buy Now</a>
                               </div>
           				         </div>
           			        </div>

@@ -14,7 +14,7 @@ h1, h2, h3, a, label {
 }
 
 h2, h3{
-  font-family: 'Crimson', serif;
+  font-family: 'Crimson-Semi', serif;
 }
 input {
   width: 50px;
@@ -185,15 +185,30 @@ body .big-input {
   margin-bottom: 25px;
 }
 
-.btn-primary{
+.btn{
+  border-radius: 0;
+}
+
+.btn-main{
   background-color: black;
   margin-top: 10px;
   border: none;
   border-radius: 0;
   padding: 10px;
   width: 150px;
+  color: white;
   outline: 1px solid white;
   outline-offset: -5px;
+}
+
+.btn-main:hover{
+  color: white;
+  background-color: #4D4D4D;
+}
+
+.btn-primary{
+  background-color: black;
+  border: none;
 }
 
 .btn-primary:hover{
@@ -401,6 +416,7 @@ body .cart-table tbody p {
 
 /* Footer */
 .main-footer{
+  color: white;
   margin: 0;
   margin-top: 30px;
   padding: 20px;
