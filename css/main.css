@@ -151,8 +151,6 @@ body .big-input {
   word-spacing: 25px;
 }
 
-
-
 /* Container */
 .container{
   margin-top: 140px;
@@ -172,6 +170,16 @@ body .big-input {
 }
 .add-margin{
   margin-bottom: 25px;
+}
+
+.product h3{
+  margin-top: 20px;
+  font-size: 2.2rem;
+}
+
+.product-img img{
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Temp Page Alternate Columns */

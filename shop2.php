@@ -31,12 +31,12 @@ if(!empty($_GET["action"])) {
         // add item to cart
         case "add":
         // allow only if there is any value in qty input
-            if(!empty($_POST["quantity"])) {    
-                // get product details user want to add in cart             
+            if(!empty($_POST["quantity"])) {
+                // get product details user want to add in cart
                 $productByCode = $productList->getProduct("SELECT * FROM product_table WHERE strCode='" . $_GET["code"] . "'");
                 // make another array to save qty entered by user and to store product details
                 $itemArray = array($productByCode["strCode"]=>array('img'=>$productByCode["strProductImg"], 'name'=>$productByCode["strProductName"], 'code'=>$productByCode["strCode"], 'inStock'=>$productByCode["nProductQty"], 'quantity'=>$_POST['quantity'], 'price'=>$productByCode["nProductPrice"]));
-                // check if session already have any product 
+                // check if session already have any product
                 if(!empty($_SESSION["cart_item"])) {
                     if(in_array($productByCode["strCode"],array_keys($_SESSION["cart_item"]))) {
                         // loop through the products in session to amend qty
@@ -54,7 +54,7 @@ if(!empty($_GET["action"])) {
                         $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
                     }
                 } else {
-                    // if session dosen't have any product then 
+                    // if session dosen't have any product then
                     // add item to session
                     $_SESSION["cart_item"] = $itemArray;
                 }
@@ -65,7 +65,7 @@ if(!empty($_GET["action"])) {
             if(!empty($_SESSION["cart_item"])) {
                 foreach($_SESSION["cart_item"] as $k => $v) {
                         if($_GET["code"] == $k)
-                            unset($_SESSION["cart_item"][$k]);                
+                            unset($_SESSION["cart_item"][$k]);
                         if(empty($_SESSION["cart_item"]))
                             unset($_SESSION["cart_item"]);
                 }
@@ -74,7 +74,7 @@ if(!empty($_GET["action"])) {
         // clear items from session
         case "empty":
             unset($_SESSION["cart_item"]);
-        break;    
+        break;
     }
 }
 ?>
@@ -129,7 +129,7 @@ if(!empty($_GET["action"])) {
                 <p>choose 3 flavours of your choice<br>
                 <small>*A box can be formed by minimum 3 jam bottles </small></p>
                 <!-- empty the session -->
-                <a id="btnEmpty" href="shop2.php?step=2&action=empty">Empty Cart</a>
+                <a id="btnEmpty" href="shop2.php?step=2&action=empty&id=Shop">Empty Cart</a>
                 <!-- use cookie for the no of boxes selected by user -->
                 <?php $noOfBoxes = $_COOKIE['boxQty'];
                 // loop through the no. of boxes selected by user
@@ -138,16 +138,16 @@ if(!empty($_GET["action"])) {
                 <div class="cart-box">
                     <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
                     <!-- Cheeck if session exists -->
-                    <?php 
+                    <?php
                             if(isset($_SESSION["cart_item"])){
                             // <!-- Set total order amount to 0 -->
                                 $item_total = 0; ?>
                     <!-- Loop through all the products added to cart -->
                     <div class="row">
-                        <?php $totalQty = 0 ; 
+                        <?php $totalQty = 0 ;
                             foreach ($_SESSION["cart_item"] as $item) { ?>
                         <div class="product-placeholder col-sm-2 col-md-2">
-                            <a href="shop2.php?step=2&action=remove&code=<?=$item["code"]?>"><i class="far fa-trash-alt"></i></a>
+                            <a href="shop2.php?step=2&action=remove&code=<?=$item["code"]?>&id=Shop"><i class="far fa-trash-alt"></i></a>
                             <img src="assets/defaultProduct.jpg" alt="cart product" class="cart-product">
                             <p>
                                 <?=$item["name"]?>
@@ -163,7 +163,7 @@ if(!empty($_GET["action"])) {
                     </div>
                     <?php } ?>
                 </div>
-                <?php 
+                <?php
                 // add total qty of all the products in session/cart
                             if (!empty($_SESSION["cart_item"])){
                                 $items = $totalQty;
@@ -176,7 +176,7 @@ if(!empty($_GET["action"])) {
 
                 <p><small class="red" id="error-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p>
                 <!-- redirect to step1 -->
-                <a class="btn" href="step1.php">back</a>
+                <a class="btn" href="step1.php?id=Shop">back</a>
                 <a class="btn btn-primary" onclick="checkCondition('<?=$items?>')">next step</a>
             </div>
             <!-- List of all products -->
@@ -187,7 +187,7 @@ if(!empty($_GET["action"])) {
                             // <!-- Loop Through All Products -->
                             foreach ($arrAllProduct as $key=>$value) { ?>
                     <div class="col-sm-12 col-md-4 shop-product">
-                        <form method="post" action="shop2.php?step=2&action=add&code=<?=$arrAllProduct[$key]["strCode"]?>" id="addToCart">
+                        <form method="post" action="shop2.php?step=2&id=Shop&action=add&code=<?=$arrAllProduct[$key]["strCode"]?>" id="addToCart">
                             <input type="hidden" name="box-qty" value="<?=$_COOKIE['boxQty']?>" />
                             <div>
                                 <img src="assets/<?=$arrAllProduct[$key]["strProductImg"] ?>" class="product-img" alt="products">
@@ -231,7 +231,7 @@ if(!empty($_GET["action"])) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php	
+                        <?php
                             foreach ($_SESSION["cart_item"] as $item){
                         // calculate the total amount of order
                             $itemTotal = ($item["price"]*$item["quantity"]);
@@ -263,7 +263,7 @@ if(!empty($_GET["action"])) {
                 <div>
                     <p>Note: Preview review and proceed to checkout your order</p>
                 </div>
-                <a class="btn" href="shop2.php?step=2">back</a>
+                <a class="btn" href="shop2.php?step=2&id=Shop">back</a>
                 <a class="btn btn-primary" href="checkout.php">Checkout</a>
             <?php } ?>
             </div>
@@ -274,7 +274,7 @@ if(!empty($_GET["action"])) {
                     <div class="cart-box">
                         <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
                         <div class="row">
-                        <?php if(isset($_SESSION["cart_item"])) { 
+                        <?php if(isset($_SESSION["cart_item"])) {
                             foreach ($_SESSION["cart_item"] as $item){ ?>
                             <div class="product-placeholder col-sm-2 col-md-2">
                                 <img src="assets/<?=$item["img"]?>" class="preview-img" alt="product preview image">
@@ -289,7 +289,7 @@ if(!empty($_GET["action"])) {
             </div>
         </section>
     </main>
-        
+
 <?php
 // <!-- Footer -->
 include("partials/footer.php"); ?>

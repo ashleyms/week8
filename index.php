@@ -2,7 +2,7 @@
     session_start();
     include("partials/header.php");
     $arrFeaturedProduct = $productList->getFeaturedProducts();
-     
+
 ?>
         <!-- Open Container -->
         <main class="container">
@@ -26,15 +26,15 @@
           <!-- Build A box -->
           <section class="row">
 
-          <!-- Loop Through Nav Items -->
+          <!-- Loop Through Page Items -->
           <?php foreach ($arrPageContent as $home) { ?>
             <div class="col-sm-12 col-md-6">
               <h3><?=$home['strSubHeading']?></h3>
               <p><?=$home['strText']?></p>
               <a class="btn btn-primary add-margin" href="step1.php?id=Shop"><?=$arrExtraContent[0]['strExtraElement']?></a>
             </div>
-            <div class="col-sm-12 col-md-6">
-              <img class="product-img" src="assets/<?=$home['strImage']?>" alt="products"/>
+            <div class="col-sm-12 col-md-6 product-img">
+              <img src="assets/<?=$home['strImage']?>" alt="products"/>
             </div>
           <?php
           }

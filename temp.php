@@ -14,13 +14,7 @@
                 <h3><?=$temp['strSubHeading']?></h3>
                 <!-- Text -->
                 <p><?=$temp['strText']?></p>
-                <!-- If About -->
-                <?php if($_GET['id'] === "About") { ?>
-                <!-- Button -->
-                <!-- <a class="btn btn-primary add-margin"><?=$arrExtraContent[0]['strExtraElement']?></a> -->
-                <?php
-                }
-                ?>
+                
             </div>
             <!-- Image -->
             <div class="col-sm-12 col-md-6">
