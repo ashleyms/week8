@@ -2,7 +2,6 @@
     session_start();
     include("partials/header.php");
     $arrFeaturedProduct = $productList->getFeaturedProducts();
-
 ?>
         <!-- Open Container -->
         <main class="container">
@@ -16,7 +15,7 @@
                 <img class="product-img" src="assets/<?=$product['strProductImg']?>" alt="products"/>
                 <h3><?=$product['strProductName']?></h3>
                 <p><?=$product['strProductDescription']?></p>
-                <button class="btn btn-primary add add-margin" type="button" data-toggle="modal" data-target="#detailmodal<?=$product['id']?>">More Details</button>
+                <button class="btn add add-margin" type="button" data-toggle="modal" data-target="#detailmodal<?=$product['id']?>">More Details</button>
             </div>
             <?php
             }
@@ -28,7 +27,7 @@
 
           <!-- Loop Through Page Items -->
           <?php foreach ($arrPageContent as $home) { ?>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 product">
               <h3><?=$home['strSubHeading']?></h3>
               <p><?=$home['strText']?></p>
               <a class="btn btn-primary add-margin" href="step1.php?id=Shop"><?=$arrExtraContent[0]['strExtraElement']?></a>
@@ -39,7 +38,6 @@
           <?php
           }
           ?>
-
           </section>
 
           <!-- Instagram Feed PLUGIN -->
@@ -49,6 +47,7 @@
             <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/2acb2358567a58fb845a19380f0d2f1a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
           </section>
 
+          <!-- Product Modal -->
           <?php
               foreach ($arrFeaturedProduct as $product) { ?>
                   <!-- Modal -->
@@ -80,7 +79,7 @@
                               </div>
           				         </div>
           			        </div>
-          		</div>
+          		      </div>
               <?php } ?>
         </main>
     <?php

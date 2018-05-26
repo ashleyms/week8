@@ -14,7 +14,6 @@
                 <h3><?=$temp['strSubHeading']?></h3>
                 <!-- Text -->
                 <p><?=$temp['strText']?></p>
-                
             </div>
             <!-- Image -->
             <div class="col-sm-12 col-md-6">
@@ -31,17 +30,17 @@
             foreach ($arrExtraContent as $temp) {
             $data = explode("|", $temp['strExtraElement']); ?>
 
-          <section class="row flip">
-            <!-- Img -->
-            <div class="col-sm-12 col-md-6 flip-img">
-                <img class="product-img" src="assets/<?=$data[1]?>" alt="products"/>
-            </div>
-            <!-- Text -->
-            <div class="col-sm-12 col-md-6">
-                <h3><?=$data[0]?></h3>
-                <p><?=$data[2]?></p>
-            </div>
-          </section>
+            <section class="row flip">
+              <!-- Img -->
+              <div class="col-sm-12 col-md-6 flip-img">
+                  <img class="product-img" src="assets/<?=$data[1]?>" alt="products"/>
+              </div>
+              <!-- Text -->
+              <div class="col-sm-12 col-md-6">
+                  <h3><?=$data[0]?></h3>
+                  <p><?=$data[2]?></p>
+              </div>
+            </section>
           <?php
               }
             }

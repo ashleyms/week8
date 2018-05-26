@@ -100,7 +100,8 @@ body .big-input {
   transition: all 0.3s;
 }
 .main-nav li a:hover{
-  color: blue;
+  color: grey;
+  letter-spacing: 2px;
 }
 
 /* Cart Button */
@@ -166,10 +167,37 @@ body .big-input {
 /* Add Product Btn */
 .add{
   display: block;
-  margin-top: 10px;
+  margin-top: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 0;
+  padding: 7px;
+  width: 150px;
+  outline: 3px solid #D9D9D9;
 }
+
+.add:hover{
+  background-color: #D9D9D9;
+}
+
+
 .add-margin{
   margin-bottom: 25px;
+}
+
+.btn-primary{
+  background-color: black;
+  margin-top: 10px;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  width: 150px;
+  outline: 1px solid white;
+  outline-offset: -5px;
+}
+
+.btn-primary:hover{
+  background-color: #4D4D4D;
 }
 
 .product h3{
