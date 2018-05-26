@@ -40,9 +40,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(isset($_SESSION["cart_item"])) { 
-                        $totalQty = 0;	
-                        foreach ($_SESSION["cart_item"] as $item) { 
+                    <?php if(isset($_SESSION["cart_item"])) {
+                        $totalQty = 0;
+                        foreach ($_SESSION["cart_item"] as $item) {
                             $itemTotal = ($item["price"]*$item["quantity"]); ?>
                     <tr>
                         <td><img src="assets/<?=$item["img"]?>" alt="preview of product"></td>
@@ -65,7 +65,7 @@
                             <a type="button" class="btn btn-primary" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
                         </td>
                         <td colspan="2">
-                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a> 
+                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a>
                         </td>
                     <?php } else { ?>
                     <tr>
@@ -75,7 +75,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a> 
+                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a>
                         </td>
                     </tr>
                     <?php } ?>
@@ -119,10 +119,17 @@
     ORDER BY extra_element_table.id ASC");
 
     foreach ($arrPageContent as $navItem) {
+    //If Contact
     if ($_GET['id'] === 'Contact') { ?>
     <!-- Open Hero -->
     <section class="hero contact-hero">
-    <?php } else { ?>
+    <?php }
+    //If Home
+    else if ($_GET['id'] === 'Home') { ?>
+    <!-- Open Hero -->
+    <section class="hero home-hero">
+    <?php }
+    else { ?>
     <section class="hero">
     <?php } ?>
         <h1><?=$navItem['strHeading']?></h1>
