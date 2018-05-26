@@ -26,7 +26,7 @@
           ?>
 
           <!-- Row 2 -->
-          <?php if($_GET['id'] != "About") {
+          <?php if($_GET['id'] != "ut") {
             foreach ($arrExtraContent as $temp) {
             $data = explode("|", $temp['strExtraElement']); ?>
 
