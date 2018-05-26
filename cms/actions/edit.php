@@ -22,6 +22,8 @@ if(isset($_GET["page"])) {
   			nProductPrice = '".$_POST["nProductPrice"]."',
         nProductQty = '".$_POST["nProductQty"]."',
         strProductDescription = '".$_POST["strProductDescription"]."',
+        strProductIntro = '".$_POST["strProductIntro"]."',
+        strIngredients = '".$_POST["strIngredients"]."',
         bFeatured = '".$_POST["bFeatured"]."',
   			strProductImg = '".$imagePath."'
   			WHERE id='".$_GET["id"]."'");
@@ -70,7 +72,7 @@ if(isset($_GET["page"])) {
             strImage = '".$imagePath."'
             WHERE nPageId='".$_GET["id"]."'");
       }
-      
+
       //Contact
       if($_GET["id"] == 6){
         $result = $CMSControl->add("UPDATE content_table SET

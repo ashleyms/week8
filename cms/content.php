@@ -24,8 +24,8 @@
   <?php foreach ($arrContent as $content) { ?>
 	<h1 class="cms-head"><?=$content['strName']?></h1>
   <?php
-    //HOME PAGE, ABOUT, SHOP
-    if($_GET['page'] == 1 || $_GET['page'] == 2 || $_GET['page'] == 5){ ?>
+    //HOME PAGE, SHOP
+    if($_GET['page'] == 1 || $_GET['page'] == 5){ ?>
       <!-- Open Form -->
       <form action="actions/edit.php?id=<?=$_GET['page']?>&page=content" class="content-form" method="POST" enctype="multipart/form-data">
             <!-- Sub Heading -->
@@ -112,7 +112,7 @@
 
 
           //Template 1 - Two column
-          if($_GET['temp'] == 1 && $_GET['page'] != 2){
+          if($_GET['temp'] == 1){
             //Data from Extra content Table
             $arrExtraContent = $CMSControl->getResults("SELECT extra_element_table.strExtraElement, extra_element_table.id
             FROM `pages_table`
@@ -130,7 +130,7 @@
                 <tr>
                     <th>Title</th><th>Text</th>
                 </tr>
-                <?php if($_GET['page'] == 3) { ?>
+                <?php if($_GET['page'] == 3 || $_GET['page'] == 2) { ?>
                 <tr>
                   <td class="textRow"><?=$content['strSubHeading']?></td>
                   <td class="textRow"><?=$content['strText']?></td>

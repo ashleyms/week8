@@ -16,6 +16,11 @@ h1, h2, h3, a, label {
 h2, h3{
   font-family: 'Crimson-Semi', serif;
 }
+
+p{
+  font-size: 0.9rem;
+}
+
 input {
   width: 50px;
 }

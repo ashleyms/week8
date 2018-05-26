@@ -142,10 +142,20 @@
                                         <input type="number" class="form-control" name="nProductQty" value="<?=$prod["nProductQty"]?>"/>
                                     </div>
                                   </div>
+                                  <!-- Intro -->
+                                  <div class="form-group">
+                                      <label>Product Intro</label>
+                                      <textarea type="text" class="form-control" name="strProductIntro"><?=$prod["strProductIntro"]?></textarea>
+                                  </div>
                                   <!--Description -->
                                   <div class="form-group">
                                       <label>Product Description</label>
                                       <textarea type="text" class="form-control" name="strProductDescription"><?=$prod["strProductDescription"]?></textarea>
+                                  </div>
+                                  <!-- Ingredients -->
+                                  <div class="form-group">
+                                      <label>Product Ingredients</label>
+                                      <textarea type="text" class="form-control" name="strIngredients"><?=$prod["strIngredients"]?></textarea>
                                   </div>
                                   <!-- Featured -->
                                   <div class="form-group">
@@ -233,10 +243,20 @@
                                       <input type="number" class="form-control" name="nProductQty"/>
                                   </div>
                                 </div>
+                                <!-- Intro -->
+                                <div class="form-group">
+                                    <label>Product Intro</label>
+                                    <textarea type="text" class="form-control" name="strProductIntro"></textarea>
+                                </div>
                                 <!--Description -->
                                 <div class="form-group">
                                     <label>Product Description</label>
                                     <textarea type="text" class="form-control" name="strProductDescription"></textarea>
+                                </div>
+                                <!-- Ingredients -->
+                                <div class="form-group">
+                                    <label>Product Ingredients</label>
+                                    <textarea type="text" class="form-control" name="strIngredients"></textarea>
                                 </div>
                                 <!-- Featured -->
                                 <div class="form-group">
