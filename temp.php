@@ -26,8 +26,7 @@
           ?>
 
           <!-- Row 2 -->
-          <?php if($_GET['id'] != "ut") {
-            foreach ($arrExtraContent as $temp) {
+          <?php foreach ($arrExtraContent as $temp) {
             $data = explode("|", $temp['strExtraElement']); ?>
 
             <section class="row flip">
@@ -42,7 +41,6 @@
               </div>
             </section>
           <?php
-              }
             }
           ?>
         </main>

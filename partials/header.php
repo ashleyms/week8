@@ -131,7 +131,12 @@
     <?php }
     else { ?>
     <section class="hero">
-    <?php } ?>
+    <?php }
+    //If order was placed - show success message on homescreen
+    if(isset($_GET['msg'])) {
+        $navItem['strHeading'] = "<span style='font-size:6.5rem;'>Your order has been<br/>placed successfully! :)</span>";
+    }
+    ?>
         <h1><?=$navItem['strHeading']?></h1>
         <img src="assets/<?=$navItem['strHeroImage']?>" alt="hero Image"/>
     </section>

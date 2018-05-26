@@ -5,9 +5,6 @@
 ?>
         <!-- Open Container -->
         <main class="container">
-        <?php if(isset($_GET['msg'])) { ?>
-            <p class="alert alert-success"> Your order has been placed successfully! :)</p>
-        <?php }?>
           <!-- Featured Products -->
           <section class="row">
             <?php foreach ($arrFeaturedProduct as $product) { ?>

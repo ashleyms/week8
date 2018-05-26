@@ -264,7 +264,7 @@ if(!empty($_GET["action"])) {
                     <p>Note: Preview review and proceed to checkout your order</p>
                 </div>
                 <a class="btn" href="shop2.php?step=2&id=Shop">back</a>
-                <a class="btn btn-primary" href="checkout.php">Checkout</a>
+                <a class="btn btn-primary" href="checkout.php?id=Shop">Checkout</a>
             <?php } ?>
             </div>
             <!-- Order Details/Summary -->
