@@ -11,7 +11,7 @@
             <div class="col-sm-12 col-md-4 product">
                 <img class="product-img" src="assets/<?=$product['strProductImg']?>" alt="products"/>
                 <h3><?=$product['strProductName']?></h3>
-                <p><?=$product['strProductDescription']?></p>
+                <p><?=$product['strProductIntro']?></p>
                 <button class="btn add add-margin" type="button" data-toggle="modal" data-target="#detailmodal<?=$product['id']?>">More Details</button>
             </div>
             <?php
@@ -49,23 +49,24 @@
               foreach ($arrFeaturedProduct as $product) { ?>
                   <!-- Modal -->
                   <div class="modal fade" id="detailmodal<?=$product["id"]?>" role="dialog">
-          			<div class="modal-dialog">
+          			<div class="modal-dialog modal-lg">
           				<!-- Modal content-->
           				<div class="modal-content">
                               <div class="modal-body">
                                   <div class="container-fluid">
                                       <div class="row">
-                                          <div class = "col-md-5">
+                                          <div class="col-md-5">
                                               <img src="assets/<?=$product["strProductImg"]?>" alt="product">
                                           </div>
-                                          <div class = "col-md-7">
-                                              <h2><?=$product["strProductName"]?></h2>
+                                          <div class="col-md-7">
+                                              <h1><?=$product["strProductName"]?></h1>
+                                              <p><?=$product["strProductIntro"]?></p>
                                               <p><?=$product["strProductDescription"]?></p>
-                                              <p>Price: $<?=$product["nProductPrice"]?></p>
+                                              <p class="price">Price: $<?=$product["nProductPrice"]?></p>
                                           </div>
-                                          <div class = "col-md-8">
+                                          <div class="col-md-8">
                                               <h2>Ingredients</h2>
-                                              <p><?=$product["strProductDescription"]?></p>
+                                              <p class="ingredients"><?=$product["strIngredients"]?></p>
                                           </div>
                                       </div>
                                   </div>

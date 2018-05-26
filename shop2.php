@@ -197,7 +197,7 @@ if(!empty($_GET["action"])) {
                                     <?=$arrAllProduct[$key]["strProductName"] ?>
                                 </h3>
                                 <p>
-                                    <?=$arrAllProduct[$key]['strProductDescription']?>
+                                    <?=$arrAllProduct[$key]['strProductIntro']?>
                                 </p>
                             </div>
                             <div>
