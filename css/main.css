@@ -17,7 +17,7 @@ h2, h3{
   font-family: 'Crimson-Semi', serif;
 }
 
-p{
+p, li{
   font-size: 0.9rem;
 }
 
@@ -444,13 +444,30 @@ body .cart-table tbody p {
   background-color: #000;
   position: relative;
 }
+.newsletter-input{
+  padding: 2px;
+  font-size: 0.9rem;
+}
+.signup{
+  background-color: #D9D9D9;
+  color: black;
+  padding: 5px 20px;
+  margin-left: 10px;
+}
+
+.footer-logo{
+  max-width: 100px;
+  float: right;
+}
+
 /* Copyright Footer */
 .sub-footer{
   height: 30px;
+  margin-top: 10px;
+  margin-left: 20px;
   width: 100%;
   bottom: 0;
   z-index: 2;
-  padding: 20px;
   position: relative;
 }
 .sub-footer p{

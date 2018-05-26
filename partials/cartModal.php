@@ -26,7 +26,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php		
+                                    <?php
                                         foreach ($_SESSION["cart_item"] as $item){
                                         $itemTotal = ($item["price"]*$item["quantity"]);
                                         ?>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <a type="button" class="btn btn-primary" href="step1.php">continue shopping</a>
+                            <a type="button" class="btn btn-primary" href="step1.php?id=Shop">continue shopping</a>
                         </div>
                     </div>
                     <?php } ?>

@@ -51,7 +51,7 @@
                             <p>Qty: <?=$item["quantity"]?></p>
                             <p>Total: <?=$itemTotal?></p>
                         </td>
-                        <td><a href="shop2.php?step=2&action=remove&code=<?=$item["code"]?>"><i class="far fa-trash-alt"></i></a>
+                        <td><a href="shop2.php?step=2&id=Shop&action=remove&code=<?=$item["code"]?>"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     <?php $totalQty += intval($item["quantity"]); } ?>
@@ -65,7 +65,7 @@
                             <a type="button" class="btn btn-primary" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
                         </td>
                         <td colspan="2">
-                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a>
+                            <a type="button" class="btn btn-success" href="step1.php?id=Shop">continue shopping</a>
                         </td>
                     <?php } else { ?>
                     <tr>
@@ -75,7 +75,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a type="button" class="btn btn-success" href="step1.php">continue shopping</a>
+                            <a type="button" class="btn btn-success" href="step1.php?id=Shop">continue shopping</a>
                         </td>
                     </tr>
                     <?php } ?>
