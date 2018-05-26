@@ -6,7 +6,7 @@
     $CMSControl = new CMS();
     $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id ORDER BY order_table.dOrderDate DESC");
 
-    if($_GET["find"]){
+    if(isset($_GET["find"])){
       $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id WHERE order_table.id = ".$_GET['find']." ");
     }
 
