@@ -20,6 +20,12 @@ class Product extends DBController {
 		if(!empty($resultset))
 			return $resultset;
 	}
+	
+	// Display featured products
+	function showFeaturedProducts(){
+		$arrFeaturedProduct = Product::getFeaturedProducts();
+		include("views/featuredGrid.php");
+	}
 
 	// generic function to get multiple products based on different where clause
 	function getProducts($sql) {
@@ -27,7 +33,7 @@ class Product extends DBController {
 		while($row=mysqli_fetch_assoc($result)) {
 			$resultset[] = $row;
 		}
-		if(!empty($resultset)) 
+		if(!empty($resultset))
 			return $resultset;
 	}
 
