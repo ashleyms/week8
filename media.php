@@ -10,8 +10,7 @@
             $data = explode("|", $navItem['strExtraElement']); ?>
             <article class="col-sm-12 col-md-6 media-section">
                 <img class="media-img" src="assets/<?=$data[0]?>" alt ="media 1 image">
-                <p><?=$data[1]?></p>
-                <p><a href="#"><?=$data[2]?></a></p>
+                <p><a href="<?=$data[2]?>"><?=$data[1]?></a></p>
             </article>
         <?php } ?>
         </section>

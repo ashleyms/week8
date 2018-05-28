@@ -93,6 +93,12 @@
                   <td class="textRow"><?=$data[1]?></td>
                   <!-- Display Link -->
                   <td class="textRow"><?=$data[2]?></td>
+                  <!-- Edit Button -->
+                  <td>
+                      <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit3<?=$extra["id"]?>">
+                          <i class=" fa fa-pencil-square-o fa-lg"></i>
+                      </button>
+                  </td>
                   <!-- Delete Button -->
                   <td>
                       <button class="btn btn-lg" data-toggle="modal" data-target="#modaldelete<?=$extra["id"]?>">
@@ -136,7 +142,7 @@
                   <td class="textRow"><?=$content['strText']?></td>
                   <!-- Edit Button -->
                   <td>
-                      <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit3">
+                      <button class="btn btn-lg" data-toggle="modal" data-target="#modaledit3<?=$content["id"]?>">
                           <i class=" fa fa-pencil-square-o fa-lg"></i>
                       </button>
                   </td>
@@ -317,7 +323,7 @@
 
                   <!-- Modal Edit Recipe -->
                   <?php foreach ($arrContent as $content) { ?>
-                      <div class="modal fade" id="modaledit3" tabindex="-1" role="dialog"
+                      <div class="modal fade" id="modaledit3<?=$page['id']?>" tabindex="-1" role="dialog"
                            aria-labelledby="myModalLabel" aria-hidden="true">
                           <div class="modal-dialog">
                               <div class="modal-content">

@@ -265,20 +265,32 @@ body .big-input {
 }
 
 .media-section p {
+  position: absolute;
   text-align: center;
-  padding: 10px 0;
+  padding: 45px 0;
+  left: 17%;
+  width: 66%;
+  bottom: 0;
   font-size: 18px;
-  background:grey;
+  background: linear-gradient(360deg, rgba(22,21,19,1) 0%, rgba(78,4,10,0.54) 58.17%, rgba(0,255,251,0.04572251263786764) 100%);
   text-transform: capitalize;
 }
 
 .media-section p>a {
-  color: white;
-  text-decoration: underline;
+  color:#e9e6e6;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.media-section p>a:hover {
+  color:#e9e6e6;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .container section .media-section {
   margin-bottom: 50px;
+  position: relative;
 }
 
 /* CONTACT SECTION */
