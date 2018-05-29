@@ -85,7 +85,7 @@ if(!empty($_GET["action"])) {
             <article class="col-sm-2 col-md-2 horizontal">
                 <div id="step1-icon">
                     <div class="step-div">
-                        <img src="assets/defaultProduct.jpg" alt="step 1" class="step-icon">
+                        <img src="assets/box-icon.png" alt="step 1" class="step-icon">
                         <p>step 1</p>
                     </div>
                     <div></div>
@@ -98,7 +98,7 @@ if(!empty($_GET["action"])) {
                 </div>
                 <div id="step2-icon">
                     <div class="step-div">
-                        <img src="assets/defaultProduct.jpg" alt="step 2" class="step-icon">
+                        <img src="assets/jar2.png" alt="step 2" class="step-icon">
                         <p>step 2</p>
                     </div>
                     <div></div>
@@ -111,7 +111,7 @@ if(!empty($_GET["action"])) {
                 </div>
                 <div id="step3-icon">
                     <div class="step-div">
-                        <img src="assets/defaultProduct.jpg" alt="step 3" class="step-icon">
+                        <img src="assets/checkout.png" alt="step 3" class="step-icon">
                         <p>step 3</p>
                     </div>
                     <div class="fa-lg">
@@ -129,14 +129,14 @@ if(!empty($_GET["action"])) {
                 <p>choose 3 flavours of your choice<br>
                 <small>*A box can be formed by minimum 3 jam bottles </small></p>
                 <!-- empty the session -->
-                <a id="btnEmpty" href="shop2.php?step=2&action=empty&id=Shop">Empty Cart</a>
+                <a id="btnEmpty" class="secondary-btn" href="shop2.php?step=2&action=empty&id=Shop">Empty Cart</a>
                 <!-- use cookie for the no of boxes selected by user -->
                 <?php $noOfBoxes = $_COOKIE['boxQty'];
                 // loop through the no. of boxes selected by user
                         for ($i=0; $i < $noOfBoxes ; $i++) { ?>
                 <!-- Box with the choice of jam flavours added to cart -->
                 <div class="cart-box">
-                    <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
+                    <img src="assets/box.png" alt="box img" class="box-img">
                     <!-- Cheeck if session exists -->
                     <?php
                             if(isset($_SESSION["cart_item"])){
@@ -148,7 +148,7 @@ if(!empty($_GET["action"])) {
                             foreach ($_SESSION["cart_item"] as $item) { ?>
                         <div class="product-placeholder col-sm-2 col-md-2">
                             <a href="shop2.php?step=2&action=remove&code=<?=$item["code"]?>&id=Shop"><i class="far fa-trash-alt"></i></a>
-                            <img src="assets/defaultProduct.jpg" alt="cart product" class="cart-product">
+                            <img src="assets/<?=$item['img']?>" alt="cart product" class="cart-product">
                             <p>
                                 <?=$item["name"]?>
                             </p>
@@ -176,8 +176,8 @@ if(!empty($_GET["action"])) {
 
                 <p><small class="red" id="error-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p>
                 <!-- redirect to step1 -->
-                <a class="btn" href="step1.php?id=Shop">back</a>
-                <a class="btn btn-primary" onclick="checkCondition('<?=$items?>')">next step</a>
+                <a class="btn secondary-btn" href="step1.php?id=Shop">back</a>
+                <a class="btn btn-main add-margin" onclick="checkCondition('<?=$items?>')">next step</a>
             </div>
             <!-- List of all products -->
             <div class="col-sm-12 col-md-5 <?=$Step2?>">
@@ -207,7 +207,7 @@ if(!empty($_GET["action"])) {
                                 <label>qty</label>
                                 <!-- set default value of qty as 1 for better ser experience -->
                                 <input type="number" name="quantity" value="1" min="1" max="<?=$arrAllProduct[$key]['nProductQty']?>" />
-                                <button class="btn btn-primary add" type="submit">Add to Box</button>
+                                <button class="btn btn-main add" type="submit">Add to Box</button>
                             </div>
                         </form>
                     </div>
@@ -261,10 +261,10 @@ if(!empty($_GET["action"])) {
                     </tbody>
                 </table>
                 <div>
-                    <p>Note: Preview review and proceed to checkout your order</p>
+                    <p>Note: Review and proceed to checkout your order</p>
                 </div>
-                <a class="btn" href="shop2.php?step=2&id=Shop">back</a>
-                <a class="btn btn-primary" href="checkout.php?id=Shop">Checkout</a>
+                <a class="btn secondary-btn" href="shop2.php?step=2&id=Shop">back</a>
+                <a class="btn btn-main add-margin" href="checkout.php?id=Shop">Checkout</a>
             <?php } ?>
             </div>
             <!-- Order Details/Summary -->
@@ -272,7 +272,7 @@ if(!empty($_GET["action"])) {
                 <article class="row">
                     <!-- Loop through products in the cart -->
                     <div class="cart-box">
-                        <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
+                        <img src="assets/box.png" alt="box img" class="box-img">
                         <div class="row">
                         <?php if(isset($_SESSION["cart_item"])) {
                             foreach ($_SESSION["cart_item"] as $item){ ?>

@@ -12,7 +12,7 @@
                 <article class="col-sm-2 col-md-2 horizontal">
                     <div id="step1-icon">
                         <div class="step-div">
-                            <img src="assets/defaultProduct.jpg" alt="step 1" class="step-icon">
+                            <img src="assets/box-icon.png" alt="step 1" class="step-icon">
                             <p>step 1</p>
                         </div>
                         <div></div>
@@ -25,7 +25,7 @@
                     </div>
                     <div id="step2-icon">
                         <div class="step-div">
-                            <img src="assets/defaultProduct.jpg" alt="step 2" class="step-icon">
+                            <img src="assets/jar2.png" alt="step 2" class="step-icon">
                             <p>step 2</p>
                         </div>
                         <div></div>
@@ -38,7 +38,7 @@
                     </div>
                     <div id="step3-icon">
                         <div class="step-div">
-                            <img src="assets/defaultProduct.jpg" alt="step 3" class="step-icon">
+                            <img src="assets/checkout.png" alt="step 3" class="step-icon">
                             <p>step 3</p>
                         </div>
                         <div class="fa-lg">
@@ -62,7 +62,7 @@
                         <label>qty</label>
                         <input type="number" id="box-qty" min="1" max="10" value="1"/><br>
                         <small>*A box can be formed by minimum 3 jam bottles </small></p>
-                        <button class="btn btn-primary add" type="submit">next step</button>
+                        <button class="btn btn-main add" type="submit">next step</button>
                     </form>                    
                 </div>
                 <!-- Box Image -->
