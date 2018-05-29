@@ -84,8 +84,8 @@
                             </div>
                         </div>
                     </div><br><br>
-                    <a class="btn" href="shop2.php?step=2">Back</a>
-                    <input type="submit" class="btn btn-primary big-input" value="place order" />
+                    <a class="btn secondary-btn" href="shop2.php?step=2">Back</a>
+                    <input type="submit" class="btn btn-main add-margin big-input" value="place order" />
                 </form>
             </div>
             <!-- Box Image -->
@@ -96,7 +96,7 @@
                 <article class="row">
                     <!-- Loop Through All Products -->
                     <div class="cart-box">
-                        <img src="assets/defaultProduct.jpg" alt="box img" class="box-img">
+                        <img src="assets/box.png" alt="box img" class="box-img">
                         <div class="row">
                             <?php if(isset($_SESSION["cart_item"])) {
                                 foreach ($_SESSION["cart_item"] as $item){ ?>
