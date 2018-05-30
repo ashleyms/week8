@@ -125,7 +125,7 @@
     }?>
     <!-- Close Modal Delete -->
 
-    <!-- Modal Edit -->
+    <!-- Modal View Order -->
     <?php foreach ($arrOrders as $order) {?>
         <div class="modal fade" id="modaledit<?=$order['orderNum']?>" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel" aria-hidden="true">
@@ -149,7 +149,7 @@
                               <div class="form-group">
                                 <h4>Customer:</h4>
                                 <h5><?=$order["strCustName"]?></h5>
-                                <p><?=$order["strCustEmail"]?><br/><?=$order["strCustAddress"]?><br/><?=$order["nCustContactNo"]?></p>
+                                <p><?=$order["strCustEmail"]?><br/><?=$order["strCustAddress"]?><br/><?=$order["strCustCity"]?><br/><?=$order["strCustProvince"]?> <?=$order["strCustZip"]?><br/><?=$order["nCustContactNo"]?></p>
                                 <hr />
                                 <h4>Order:</h4>
                                 <?php $arrOrderDetails = $CMSControl->getResults("SELECT * FROM order_item_table LEFT JOIN order_table ON order_item_table.nOrderId = order_table.id LEFT JOIN product_table ON order_item_table.nProductId = product_table.id WHERE order_table.id = '".$order['orderNum']."'");  ?>
