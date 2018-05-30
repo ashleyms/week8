@@ -28,8 +28,8 @@ class Product extends DBController {
 	}
 
 	// generic function to get multiple products based on different where clause
-	function getProducts($sql) {
-		$result = mysqli_query($this->conn,$sql);
+	function getProductIdInCart($productName) {
+		$result = mysqli_query($this->conn,"SELECT id FROM product_table WHERE strProductName ='" . $productName . "'");
 		while($row=mysqli_fetch_assoc($result)) {
 			$resultset[] = $row;
 		}
@@ -37,9 +37,9 @@ class Product extends DBController {
 			return $resultset;
 	}
 
-	// generic function to get single product based on different where clause
-	function getProduct($sql){
-		$result = mysqli_query($this->conn,$sql);
+	// function to add each item selected by user to cart
+	function addProductToCart($sql){
+		$result = mysqli_query($this->conn,"SELECT * FROM product_table WHERE strCode='" . $sql . "'");
 		while($row=mysqli_fetch_assoc($result)) {
 			return $row;
 		}

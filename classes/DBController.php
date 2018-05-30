@@ -10,7 +10,7 @@ class DBController {
 		$this->conn = $this->connectDB();
 	}
 
-	function connectDB() {
+	private function connectDB() {
 		$conn = mysqli_connect($this->host,$this->user,$this->password,$this->database);
 		return $conn;
 	}

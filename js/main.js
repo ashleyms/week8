@@ -39,7 +39,7 @@ $(document).ready(function() {
     $('#cart').mouseover(function() {
         $('#cart-summary').css("display", "block");
     });
-    $('.container').on("click", function() {
+    $('#close-btn').on("click", function() {
         $('#cart-summary').css("display", "none");
     });
 });

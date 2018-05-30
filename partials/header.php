@@ -36,7 +36,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col" colspan="3">Product Description</th>
+                        <th scope="col" colspan="2">Product Description</th>
+                        <th><button type="button" class="close" id="close-btn">&#x292B;</button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,14 +59,14 @@
                     <tr>
                         <td colspan="3">
                             <!-- error message to remind user to buy min 3 products -->
-                            <p><small class="red" id="err-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p></tr>
+                            <p><small class="red" id="err-msg">*Dear customer, 1 box can be made by 3 jam jars only! Please select atleast 3 items or in multiple of 3.</small></p>
                         </td>
                     </tr>
                         <td colspan="1">
-                            <a type="button" class="btn btn-main" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
+                            <a type="button" class="btn btn-main add-margin" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
                         </td>
                         <td colspan="2">
-                            <a type="button" class="btn add add-margin secondary-btn" href="step1.php?id=Shop">continue shopping</a>
+                            <a class="btn secondary-btn" href="step1.php?id=Shop">shop more</a>
                         </td>
                     <?php } else { ?>
                     <tr>
@@ -75,7 +76,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a type="button" class="btn btn-success" href="step1.php?id=Shop">continue shopping</a>
+                            <a class="btn secondary-btn" href="step1.php?id=Shop">shop now</a>
                         </td>
                     </tr>
                     <?php } ?>

@@ -6,7 +6,7 @@
             <!-- Open Email Form -->
             <p class="newsletter">Join our mailing list to be the first to hear about new products!</p>
             <form action="#" method="post">
-                <input type="email" name="email" class="newsletter-input big-input" placeholder="email@example.com" required/>
+                <input type="email" name="email" class="newsletter-input big-input" placeholder="email@example.com" autocomplete="off" required/>
                 <input type="submit" class="btn btn-primary big-input signup" value="SUBSCRIBE">
             </form>
             <!-- Close Email Form -->

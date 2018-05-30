@@ -60,8 +60,8 @@
                     </div>
                     <!-- modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-primary" href="checkout.php">Checkout</a>
+                        <button type="button" class="btn add add-margin" data-dismiss="modal">Close</button>
+                        <a type="button" class="btn btn-main add-margin" href="checkout.php">Checkout</a>
                     </div>
                     <!-- modal body if no items exists in shopping cart -->
                     <?php } else { ?>
@@ -72,8 +72,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <a type="button" class="btn btn-primary" href="step1.php?id=Shop">continue shopping</a>
+                            <button type="button" class="btn add" data-dismiss="modal">Close</button>
+                            <a class="btn btn secondary-btn add-margin" href="step1.php?id=Shop">shop now</a>
                         </div>
                     </div>
                     <?php } ?>

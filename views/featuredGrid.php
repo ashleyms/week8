@@ -12,36 +12,37 @@
 
   <!-- Product Modal -->
   <?php
-      foreach ($arrFeaturedProduct as $product) { ?>
-          <!-- Modal -->
-          <div class="modal fade" id="detailmodal<?=$product["id"]?>" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <!-- Modal content-->
-          <div class="modal-content">
-                      <div class="modal-body">
-                          <div class="container-fluid">
-                              <div class="row">
-                                  <div class="col-md-5">
-                                      <img src="assets/<?=$product["strProductImg"]?>" alt="product">
-                                  </div>
-                                  <div class="col-md-7">
-                                      <h1><?=$product["strProductName"]?></h1>
-                                      <p><?=$product["strProductIntro"]?></p>
-                                      <p><?=$product["strProductDescription"]?></p>
-                                      <p class="price">Price: $<?=$product["nProductPrice"]?></p>
-                                  </div>
-                                  <div class="col-md-8">
-                                      <h2>Ingredients</h2>
-                                      <p class="ingredients"><?=$product["strIngredients"]?></p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <a type="button" class="btn btn-primary" href="step1.php?id=Shop">Buy Now</a>
-                      </div>
-                   </div>
+      foreach ($arrFeaturedProduct as $product) { ?>   
+    <!-- About product Modal window -->
+    <div class="modal fade" id="detailmodal<?=$product["id"]?>" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <!-- Modal body-->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img src="assets/<?=$product["strProductImg"]?>" alt="product">
+                            </div>
+                            <div class="col-md-7">
+                                <h1><?=$product["strProductName"]?></h1>
+                                <p><?=$product["strProductIntro"]?></p>
+                                <p><?=$product["strProductDescription"]?></p>
+                                <p class="price">Price: $<?=$product["nProductPrice"]?></p>
+                            </div>
+                            <div class="col-md-8">
+                                <h2>Ingredients</h2>
+                                <p class="ingredients"><?=$product["strIngredients"]?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn add" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-main" href="step1.php?id=Shop">Buy Now</a>
                 </div>
             </div>
+        </div>
+    </div>
       <?php } ?>
