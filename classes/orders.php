@@ -34,9 +34,9 @@ class Order extends DBController {
 		return mysqli_insert_id($this->conn);
 	}
 
-	function addItemToOrder($orderId,$prodId) {
-		$result = mysqli_query($this->conn,"INSERT INTO order_item_table (`nOrderId`, `nProductId`) 
-		VALUES ('" . $orderId . "', '" . $prodId . "')");
+	function addItemToOrder($orderId, $prodId, $prodQty) {
+		$result = mysqli_query($this->conn,"INSERT INTO order_item_table (`nOrderId`, `nProductId`,`nProdQty`) 
+		VALUES ('" . $orderId . "', '" . $prodId . "', '" . $prodQty . "');");
 		return mysqli_insert_id($this->conn);
 	}
 	
