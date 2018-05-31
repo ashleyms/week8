@@ -6,6 +6,7 @@
     $CMSControl = new CMS();
     $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id ORDER BY order_table.dOrderDate DESC");
 
+
     if(isset($_GET["find"])){
       $arrOrders = $CMSControl->getResults("SELECT *, if(bOrderStatus = 0,'In-Progress', 'Full-Filled') as strStatus, order_table.id as orderNum FROM order_table LEFT JOIN customer_table ON order_table.nCustomerId = customer_table.id WHERE order_table.id = ".$_GET['find']." ");
     }
@@ -126,7 +127,12 @@
     <!-- Close Modal Delete -->
 
     <!-- Modal View Order -->
-    <?php foreach ($arrOrders as $order) {?>
+    <?php foreach ($arrOrders as $order) {
+      //Get city and province info
+      $arrCity = $CMSControl->getResults("SELECT customer_table.id, cityTable.strName AS strCity, stateTable.strName as strProv FROM customer_table
+                                          LEFT JOIN cityTable ON customer_table.strCustCity = cityTable.id
+                                          LEFT JOIN stateTable ON customer_table.strCustProvince = stateTable.id WHERE customer_table.id = ".$order['id']."");
+      ?>
         <div class="modal fade" id="modaledit<?=$order['orderNum']?>" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -149,7 +155,7 @@
                               <div class="form-group">
                                 <h4>Customer:</h4>
                                 <h5><?=$order["strCustName"]?></h5>
-                                <p><?=$order["strCustEmail"]?><br/><?=$order["strCustAddress"]?><br/><?=$order["strCustCity"]?><br/><?=$order["strCustProvince"]?> <?=$order["strCustZip"]?><br/><?=$order["nCustContactNo"]?></p>
+                                <p><?=$order["strCustEmail"]?><br/><?=$order["strCustAddress"]?><br/><?=$arrCity[0]["strCity"]?><br/><?=$arrCity[0]["strProv"]?> <?=$order["strCustZip"]?><br/><?=$order["nCustContactNo"]?></p>
                                 <hr />
                                 <h4>Order:</h4>
                                 <?php $arrOrderDetails = $CMSControl->getResults("SELECT * FROM order_item_table LEFT JOIN order_table ON order_item_table.nOrderId = order_table.id LEFT JOIN product_table ON order_item_table.nProductId = product_table.id WHERE order_table.id = '".$order['orderNum']."'");  ?>
@@ -167,7 +173,7 @@
                                         <!-- Order Num -->
                                         <td class="table-img"><img src="../assets/<?=$orders["strProductImg"]?>"/></td>
                                         <!-- Customer Email -->
-                                        <td class="modal-textRow">1</td>
+                                        <td class="modal-textRow"><?=$orders["nProdQty"]?></td>
                                         <!-- Total -->
                                         <td class="modal-textRow">$<?=$orders["nProductPrice"]?></td>
                                     </tr>
