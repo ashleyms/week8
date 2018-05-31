@@ -6,7 +6,7 @@
         <!-- Contact Main Section -->
     <main class="container">
         <!-- Contact Form -->
-        <form method='POST' action='#' name="sentMessage" id="contactForm" class="contact-form">
+        <form method='POST' action='mailto:kunika.111@gmail.com' name="sentMessage" id="contactForm" class="contact-form">
             <div class="row">
                 <div class="col-sm-12 col-md-12">
                     <div class="form-group">
