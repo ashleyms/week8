@@ -16,7 +16,6 @@ $address = $_POST['address1'] . " " . $_POST['address2'];
 $bRegistered = $newOrder->checkCustRegistered($_POST["email"]);
 // if customer is not registered insert details to customer table
 if (!$bRegistered) {
-    var_dump($_POST["phoneNo"]);
     $custId = $newOrder->createCustomerId($_POST["name"], $_POST["email"], $_POST["phoneNo"], $address, $_POST["city"], $_POST["state"], $_POST["zip"], 'false');
 } else {
 // if customer is registered extract its customer id    
