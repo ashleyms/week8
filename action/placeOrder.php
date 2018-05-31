@@ -27,7 +27,7 @@ if (!$bRegistered) {
 // set order total to 0, so as to add price
 $orderTotal   = 0;
 // create empty array to hold products in order
-$arrProductId = array();
+$arrProductList = array();
 
 // loop through all the products
 foreach ($_SESSION["cart_item"] as $item) {
@@ -37,16 +37,21 @@ foreach ($_SESSION["cart_item"] as $item) {
     $productId = $productDetails->getProductIdInCart($item['name']);
     // save product id as string 
     $productId = $productId[0]['id'];
+    $productQty = $item['quantity'];
     // push individual product id in the empty array created
-    array_push($arrProductId, $productId);
+    $arrProductList[$productId]  = $productQty ;
+    // array_push($arrProductList, $productId);
 }
 
 // insert a new order in database
 $orderId = $newOrder->createOrder($custId, $orderTotal);
 
 // insert the products inside that specific order id
-foreach ($arrProductId as $prodId) {
-    $newOrder->addItemToOrder($orderId, $prodId);
+foreach ($arrProductList as $prodId=>$prodQty) {
+    $result = $newOrder->addItemToOrder($orderId, $prodId, $prodQty);
+}
+if($result) {
+    unset($_SESSION["cart_item"]);
 }
 
 header("location: ../index.php?msg=success");
