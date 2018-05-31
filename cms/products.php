@@ -134,7 +134,7 @@
                                     <!-- Price -->
                                     <div class="form-group col-md-3">
                                         <label>Price</label>
-                                        <input type="number" class="form-control" name="nProductPrice" value="<?=$prod["nProductPrice"]?>"/>
+                                        <input type="text" class="form-control" name="nProductPrice" value="<?=$prod["nProductPrice"]?>"/>
                                     </div>
                                     <!-- Qty -->
                                     <div class="form-group col-md-3">
