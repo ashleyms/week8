@@ -121,9 +121,9 @@ include("partials/addToCartProcess.php");
                                 <h3 data-toggle="modal" data-target="#detailmodal<?=$arrAllProduct[$key]["id"]?>">
                                     <?=$arrAllProduct[$key]["strProductName"] ?>
                                 </h3>
-                                <p>
+                                <!-- <p>
                                     <?=$arrAllProduct[$key]['strProductIntro']?>
-                                </p>
+                                </p> -->
                             </div>
                             <div>
                                 <?="$".$arrAllProduct[$key]["nProductPrice"] ?>
