@@ -13,6 +13,8 @@ switch($_GET["step"]) {
         $Step3 = 'hide';
         $step2Dot = 'blackDot';
         $step3Dot = 'whiteDot';
+        $step2Opa = 'opacityH';
+        $step3Opa = 'opacityL';
     break;
     // show step 3
     case 3:
@@ -21,6 +23,8 @@ switch($_GET["step"]) {
         $Step3 = 'show';
         $step2Dot = 'whiteDot';
         $step3Dot = 'blackDot';
+        $step2Opa = 'opacityL';
+        $step3Opa = 'opacityH';
     break;
 }
 // check if user did any action : adding item to cart/ removed item from cart/ empty the cart

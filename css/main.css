@@ -348,6 +348,14 @@ label[for=message]
 }
 
 /* STEP POSITION */
+.opacityH {
+  opacity: 1;
+}
+
+.opacityL {
+ opacity: 0.2;
+}
+
 .whiteDot {
   color: white;
   border: solid 2px black;
@@ -366,7 +374,7 @@ label[for=message]
 }
 
 body #step1-icon div:nth-child(2), #step2-icon div:nth-child(2) {
-  height: 160px;
+  height: 165px;
   width: 2px;
   background: black;
   position: absolute;
@@ -403,6 +411,7 @@ body .show .shop-product h3 {
   margin-top: 17px;
   text-decoration: none;
   color: black;
+  -webkit-appearance: inherit !important;
 }
 
 .secondary-btn:hover {
@@ -654,6 +663,7 @@ body .cart-table tbody p {
     display: block;
     width: 50% !important;
   }
+
 
  /* CHECKOUT SUMMARY TABLE */
   body .summary-table {

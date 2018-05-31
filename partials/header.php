@@ -63,10 +63,10 @@
                         </td>
                     </tr>
                         <td colspan="1">
-                            <a type="button" class="btn btn-main add-margin" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
+                            <a type="button" class="btn secondary-btn" onclick="checkCondition(<?=$totalQty?>)">Checkout</a>
                         </td>
                         <td colspan="2">
-                            <a class="btn secondary-btn" href="step1.php?id=Shop">shop more</a>
+                            <a class="btn btn-main add-margin" href="step1.php?id=Shop">shop more</a>
                         </td>
                     <?php } else { ?>
                     <tr>
@@ -76,7 +76,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a class="btn secondary-btn" href="step1.php?id=Shop">shop now</a>
+                            <a class="btn btn-main" href="step1.php?id=Shop">shop now</a>
                         </td>
                     </tr>
                     <?php } ?>

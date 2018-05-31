@@ -9,7 +9,7 @@ include("partials/addToCartProcess.php");
         <section class="row">
             <article class="col-sm-2 col-md-2 horizontal">
                 <div id="step1-icon">
-                    <div class="step-div">
+                    <div class="step-div opacityL">
                         <img src="assets/box-icon.jpg" alt="step 1" class="step-icon">
                         <p>step 1</p>
                     </div>
@@ -22,7 +22,7 @@ include("partials/addToCartProcess.php");
                     </div>
                 </div>
                 <div id="step2-icon">
-                    <div class="step-div">
+                    <div class="step-div <?=$step2Opa?>">
                         <img src="assets/jar.jpg" alt="step 2" class="step-icon">
                         <p>step 2</p>
                     </div>
@@ -35,7 +35,7 @@ include("partials/addToCartProcess.php");
                     </div>
                 </div>
                 <div id="step3-icon">
-                    <div class="step-div">
+                    <div class="step-div <?=$step3Opa?>">
                         <img src="assets/checkout.jpg" alt="step 3" class="step-icon">
                         <p>step 3</p>
                     </div>
