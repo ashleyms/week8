@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>EAST VAN JAM | VANARTS STUDENT MOCK PROJECT SITE</title>
     <meta name="description" content="This is a student exercise website for the Vancouver Institute of Media Arts (www.vanarts.com)." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
