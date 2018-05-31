@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="form-group col-sm-12 col-md-12">
                                             <label for="phone">contact number: </label>
-                                            <input type="text" name="phoneNo" class="form-control" id="phone" pattern="^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" placeholder="222-222-2222" required="" autocomplete="off" data-validation-required-message="Please enter your phone number.">
+                                            <input type="tel" name="phoneNo" class="form-control" id="phone" maxlength="10" placeholder="8888888888" required="" autocomplete="off" data-validation-required-message="Please enter your phone number.">
                                         </div>
                                         <div class="form-group col-sm-12 col-md-12">
                                             <label for="address">Address</label>

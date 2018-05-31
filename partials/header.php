@@ -43,8 +43,10 @@
                 <tbody>
                     <?php if(isset($_SESSION["cart_item"])) {
                         $totalQty = 0;
+                        var_dump($_SESSION["cart_item"]);
                         foreach ($_SESSION["cart_item"] as $item) {
-                            $itemTotal = ($item["price"]*$item["quantity"]); ?>
+                            $itemTotal = ($item["price"]*$item["quantity"]); 
+                            ?>
                     <tr>
                         <td><img src="assets/<?=$item["img"]?>" alt="preview of product"></td>
                         <td>
