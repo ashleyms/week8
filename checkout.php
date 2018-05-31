@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("partials/header.php");
+
 ?>
         <!-- Shop Main Section -->
         <main class="container">
@@ -44,20 +45,17 @@
                                             <input type="text" name="address2" class="form-control" id="address2" placeholder="Apartment, studio, or floor" required="" autocomplete="off" data-validation-required-message="Please enter your address.">
                                         </div>
                                         <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                            <label for="inputCity">City</label>
-                                            <input type="text" name="city" class="form-control" id="inputCity" required="" autocomplete="off" data-validation-required-message="Please enter your city.">
-                                            </div>
                                             <div class="form-group col-md-4">
-                                            <label for="inputState">State</label>
-                                            <select id="inputState" name="state" class="form-control" required="" autocomplete="off" data-validation-required-message="Please choose your state.">
-                                                <option selected>Choose...</option>
-                                                <option>British Columbia</option>
-                                            </select>
+                                                <label for="inputCity">City</label>
+                                                <?=$pageContent->buildSelectList("city", "cityTable"); ?>
                                             </div>
-                                            <div class="form-group col-md-2">
-                                            <label for="inputZip">Zip</label>
-                                            <input type="text" name="zip" class="form-control" id="inputZip" required="" autocomplete="off" data-validation-required-message="Please enter your zip.">
+                                            <div class="form-group col-md-5">
+                                                <label for="inputState">State</label>
+                                                <?=$pageContent->buildSelectList("state", "stateTable");?>
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputZip">Zip</label>
+                                                <input type="text" name="zip" class="form-control" id="inputZip" required="" autocomplete="off" data-validation-required-message="Please enter your zip.">
                                             </div>
                                         </div>
                                     </div>

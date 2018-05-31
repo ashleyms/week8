@@ -16,7 +16,7 @@ class Order extends DBController {
 	}
 
 	function createCustomerId($name,$email,$phoneNo,$address,$city,$state,$zip,$bregistered){
-		$result = mysqli_query($this->conn,"INSERT INTO customer_table (`strCustName`, `strCustEmail`, `nCustContactNo`, `strCustAddress`, `bRegistered`) 
+		$result = mysqli_query($this->conn,"INSERT INTO customer_table (`strCustName`, `strCustEmail`, `nCustContactNo`, `strCustAddress`,`strCustCity`,`strCustProvince`,`strCustZip`, `bRegistered`) 
 		VALUES ('" . $name . "', 
 		'" . $email . "', 
 		'" . $phoneNo . "', 
